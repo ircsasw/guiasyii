@@ -1,0 +1,72 @@
+2012/01/31 00:41:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "yii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('yii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=yii
+2012/01/31 00:42:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "yiic".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('yiic')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=yiic
+2012/01/31 00:42:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "yiig".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('yiig')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=yiig
+2012/01/31 00:42:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=gii
+2012/01/31 00:42:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=gii
+2012/01/31 00:43:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=gii
+2012/01/31 00:43:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=gii
+2012/01/31 00:43:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii118\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/guiasyii/index.php?r=gii
+2012/01/31 00:56:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "Usuarios".' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('Usuarios')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('Usuarios')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('site/Usuarios')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=site/Usuarios
+2012/01/31 00:57:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "Usuarios".' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('Usuarios')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('Usuarios')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('site/Usuarios')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=site/Usuarios
+2012/01/31 00:57:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "Usuarios".' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('Usuarios')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('Usuarios')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('site/Usuarios')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=site/Usuarios
