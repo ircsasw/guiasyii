@@ -21,15 +21,15 @@ $this->breadcrumbs=array(
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
+		<?php echo $form->labelEx($model,'usuario'); ?>
+		<?php echo $form->textField($model,'usuario'); ?>
+		<?php echo $form->error($model,'usuario'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
+		<?php echo $form->labelEx($model,'pass'); ?>
+		<?php echo $form->passwordField($model,'pass'); ?>
+		<?php echo $form->error($model,'pass'); ?>
 		<p class="hint">
 			Hint: You may login with <tt>demo/demo</tt> or <tt>admin/admin</tt>.
 		</p>

@@ -11,6 +11,15 @@
  */
 class Usuarios extends CActiveRecord
 {
+	public function validatePassword($pass)
+	{
+		return $this->hashPassword($pass)===$this->pass;
+	}
+	
+	public function hashPassword($pass)
+	{
+		return md5($pass);
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Usuarios the static model class

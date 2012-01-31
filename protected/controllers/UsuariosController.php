@@ -62,6 +62,7 @@ class UsuariosController extends Controller
 	public function actionCreate()
 	{
 		$model=new Usuarios;
+		
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -69,6 +70,7 @@ class UsuariosController extends Controller
 		if(isset($_POST['Usuarios']))
 		{
 			$model->attributes=$_POST['Usuarios'];
+			$model->pass=md5($model->pass);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -93,6 +95,7 @@ class UsuariosController extends Controller
 		if(isset($_POST['Usuarios']))
 		{
 			$model->attributes=$_POST['Usuarios'];
+			$model->pass=md5($model->pass);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
