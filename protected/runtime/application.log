@@ -797,3 +797,17 @@ Stack trace:
 #9 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
 #10 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
 #11 {main} REQUEST_URI=/guiasyii/index.php?r=origenes%2Fdelete&id=1&ajax=origenes-grid
+2012/01/31 22:18:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii118\framework\web\auth\CAccessControlFilter.php:158
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#6 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('admin')
+#8 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('origenes/admin')
+#9 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/guiasyii/index.php?r=origenes/admin
