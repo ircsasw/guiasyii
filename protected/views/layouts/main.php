@@ -29,7 +29,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Origenes', 'url'=>array('/origenes/index')),
+				array('label'=>'Origenes', 'url'=>array('/origenes/admin')),
 				array('label'=>'Destinos', 'url'=>array('/destinos/index')),
 				array('label'=>'Guias', 'url'=>array('/guias/index')),
 				//array('label'=>'Origenes ('.Yii::app()->user->name.')', 'url'=>array('/origenes/index'), 'visible'=>!Yii::app()->user->isGuest),
