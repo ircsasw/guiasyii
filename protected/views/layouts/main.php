@@ -31,7 +31,7 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Origenes', 'url'=>array('/origenes/index')),
 				array('label'=>'Destinos', 'url'=>array('/destinos/index')),
-				array('label'=>'Guias', 'url'=>array('/guias/index')),
+				array('label'=>'Guias', 'url'=>array('/guias/admin')),
 				//array('label'=>'Origenes ('.Yii::app()->user->name.')', 'url'=>array('/origenes/index'), 'visible'=>!Yii::app()->user->isGuest),
 				//array('label'=>'Destinos ('.Yii::app()->user->name.')', 'url'=>array('/destinos/index'), 'visible'=>!Yii::app()->user->isGuest),
 				//array('label'=>'Guias ('.Yii::app()->user->name.')', 'url'=>array('/guias/index'), 'visible'=>!Yii::app()->user->isGuest),			
