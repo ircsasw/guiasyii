@@ -812,6 +812,7 @@ Stack trace:
 #10 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
 #11 {main} REQUEST_URI=/guiasyii/index.php?r=origenes/admin
 <<<<<<< HEAD
+<<<<<<< HEAD
 2012/01/31 23:22:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii118\framework\web\auth\CAccessControlFilter.php:158
 Stack trace:
 #0 C:\xampp\htdocs\yii118\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
@@ -827,6 +828,134 @@ Stack trace:
 #10 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
 #11 {main} REQUEST_URI=/guiasyii/index.php?r=usuarios/admin
 2012/02/02 21:10:22 [error] [php] include(CchecBoxColum.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
+=======
+2012/02/02 20:35:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection falló al abrir la conexion a la base de datos: SQLSTATE[42000] [1049] Unknown database 'controlguias'' in C:\xampp\htdocs\yii118\framework\db\CDbConnection.php:364
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii118\framework\base\CModule.php(372): CDbConnection->init()
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(429): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(609): CApplication->getDb()
+#5 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Destinos))
+#7 C:\xampp\htdocs\yii118\framework\web\CActiveDataProvider.php(72): CActiveRecord::model('Destinos')
+#8 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(130): CActiveDataProvider->__construct('Destinos')
+#9 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionIndex()
+#10 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('index')
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('destinos/index')
+#20 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/guiasyii/index.php?r=destinos/index
+2012/02/02 20:37:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection falló al abrir la conexion a la base de datos: SQLSTATE[42000] [1049] Unknown database 'controlguias'' in C:\xampp\htdocs\yii118\framework\db\CDbConnection.php:364
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii118\framework\base\CModule.php(372): CDbConnection->init()
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(429): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(609): CApplication->getDb()
+#5 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Origenes))
+#7 C:\xampp\htdocs\yii118\framework\web\CActiveDataProvider.php(72): CActiveRecord::model('Origenes')
+#8 C:\xampp\htdocs\guiasyii\protected\controllers\OrigenesController.php(130): CActiveDataProvider->__construct('Origenes')
+#9 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): OrigenesController->actionIndex()
+#10 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('index')
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('origenes/index')
+#20 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/guiasyii/index.php?r=origenes/index
+2012/02/02 20:37:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection falló al abrir la conexion a la base de datos: SQLSTATE[42000] [1049] Unknown database 'controlguias'' in C:\xampp\htdocs\yii118\framework\db\CDbConnection.php:364
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii118\framework\base\CModule.php(372): CDbConnection->init()
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(429): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(609): CApplication->getDb()
+#5 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Destinos))
+#7 C:\xampp\htdocs\yii118\framework\web\CActiveDataProvider.php(72): CActiveRecord::model('Destinos')
+#8 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(130): CActiveDataProvider->__construct('Destinos')
+#9 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionIndex()
+#10 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('index')
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('destinos/index')
+#20 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/guiasyii/index.php?r=destinos/index
+2012/02/02 20:38:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection falló al abrir la conexion a la base de datos: SQLSTATE[42000] [1049] Unknown database 'controlguias'' in C:\xampp\htdocs\yii118\framework\db\CDbConnection.php:364
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii118\framework\base\CModule.php(372): CDbConnection->init()
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(429): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(609): CApplication->getDb()
+#5 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Guias))
+#7 C:\xampp\htdocs\yii118\framework\web\CActiveDataProvider.php(72): CActiveRecord::model('Guias')
+#8 C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php(130): CActiveDataProvider->__construct('Guias')
+#9 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): GuiasController->actionIndex()
+#10 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('index')
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/index')
+#20 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/guiasyii/index.php?r=guias/index
+2012/02/02 20:38:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection falló al abrir la conexion a la base de datos: SQLSTATE[42000] [1049] Unknown database 'controlguias'' in C:\xampp\htdocs\yii118\framework\db\CDbConnection.php:364
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 C:\xampp\htdocs\yii118\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii118\framework\base\CModule.php(372): CDbConnection->init()
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(429): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(609): CApplication->getDb()
+#5 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(2275): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii118\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Usuarios))
+#7 C:\xampp\htdocs\guiasyii\protected\models\Usuarios.php(29): CActiveRecord::model('Usuarios')
+#8 C:\xampp\htdocs\guiasyii\protected\components\UserIdentity.php(23): Usuarios::model()
+#9 C:\xampp\htdocs\guiasyii\protected\models\LoginForm.php(51): UserIdentity->authenticate()
+#10 C:\xampp\htdocs\yii118\framework\validators\CInlineValidator.php(39): LoginForm->authenticate('pass', Array)
+#11 C:\xampp\htdocs\yii118\framework\validators\CValidator.php(192): CInlineValidator->validateAttribute(Object(LoginForm), 'pass')
+#12 C:\xampp\htdocs\yii118\framework\base\CModel.php(152): CValidator->validate(Object(LoginForm), NULL)
+#13 C:\xampp\htdocs\guiasyii\protected\controllers\SiteController.php(88): CModel->validate()
+#14 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#15 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii118\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('login')
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('site/login')
+#20 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/guiasyii/index.php?r=site/login
+2012/02/02 21:16:35 [error] [php] include(CcheckBoxColum.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 2012/02/02 21:11:43 [error] [php] include(CchecBoxColum.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
 >>>>>>> b6f71f8324ff420845d78531799e5c6dc2371f1f
@@ -1010,6 +1139,7 @@ Stack trace:
 #2 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(279): CGridView->initColumns()
 #3 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(140): CGridView->init()
 <<<<<<< HEAD
+<<<<<<< HEAD
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): GuiasController->createWidget()
 #5 C:\xampp\htdocs\guiasyii\protected\views\guias\admin.php(66): GuiasController->widget()
 #6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require()
@@ -1035,6 +1165,33 @@ in C:\xampp\htdocs\guiasyii\protected\views\guias\admin.php (66)
 in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (148)
 in C:\xampp\htdocs\guiasyii\index.php (13)
 2012/02/02 21:12:06 [error] [php] include(CchecBoxColums.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
+=======
+#4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): DestinosController->createWidget()
+#5 C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php(56): DestinosController->widget()
+#6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require()
+#7 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(88): DestinosController->renderInternal()
+#8 C:\xampp\htdocs\yii118\framework\web\CController.php(866): DestinosController->renderFile()
+#9 C:\xampp\htdocs\yii118\framework\web\CController.php(779): DestinosController->renderPartial()
+#10 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(148): DestinosController->render()
+#11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionAdmin()
+#12 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): DestinosController->runAction()
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CAccessControlFilter->filter()
+#16 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): DestinosController->filterAccessControl()
+#17 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#19 C:\xampp\htdocs\yii118\framework\web\CController.php(257): DestinosController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): DestinosController->run()
+#21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\guiasyii\index.php(13): CWebApplication->run()
+REQUEST_URI=/guiasyii/index.php?r=destinos/admin
+in C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php (56)
+in C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php (148)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/02/02 21:18:03 [error] [php] include(CCheckBoxColum.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): OrigenesController->createWidget()
 #5 C:\xampp\htdocs\guiasyii\protected\views\origenes\admin.php(56): OrigenesController->widget()
@@ -1068,6 +1225,7 @@ Stack trace:
 #2 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(279): CGridView->initColumns()
 #3 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(140): CGridView->init()
 <<<<<<< HEAD
+<<<<<<< HEAD
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): GuiasController->createWidget()
 #5 C:\xampp\htdocs\guiasyii\protected\views\guias\admin.php(66): GuiasController->widget()
 #6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require()
@@ -1093,6 +1251,59 @@ in C:\xampp\htdocs\guiasyii\protected\views\guias\admin.php (66)
 in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (148)
 in C:\xampp\htdocs\guiasyii\index.php (13)
 2012/02/02 21:12:56 [error] [php] include(CchecBoxColum.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii118\framework\YiiBase.php:421)
+=======
+#4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): DestinosController->createWidget()
+#5 C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php(55): DestinosController->widget()
+#6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require()
+#7 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(88): DestinosController->renderInternal()
+#8 C:\xampp\htdocs\yii118\framework\web\CController.php(866): DestinosController->renderFile()
+#9 C:\xampp\htdocs\yii118\framework\web\CController.php(779): DestinosController->renderPartial()
+#10 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(148): DestinosController->render()
+#11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionAdmin()
+#12 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): DestinosController->runAction()
+#14 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CAccessControlFilter->filter()
+#16 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): DestinosController->filterAccessControl()
+#17 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#19 C:\xampp\htdocs\yii118\framework\web\CController.php(257): DestinosController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): DestinosController->run()
+#21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\guiasyii\index.php(13): CWebApplication->run()
+REQUEST_URI=/guiasyii/index.php?r=destinos/admin
+in C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php (55)
+in C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php (148)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/02/02 21:18:44 [error] [exception.CException] exception 'CException' with message 'La columna debe especificarse en el formato "Nombre:Tipo:Etiqueta", donde "Tipo" y "Etiqueta" son opcionales.' in C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php:332
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(303): CGridView->createDataColumn('$data->id')
+#1 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(279): CGridView->initColumns()
+#2 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(140): CGridView->init()
+#3 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php(55): CBaseController->widget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(88): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii118\framework\web\CController.php(866): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\yii118\framework\web\CController.php(779): CController->renderPartial('admin', Array, true)
+#9 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(148): CController->render('admin', Array)
+#10 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionAdmin()
+#11 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\xampp\htdocs\yii118\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii118\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
+#18 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('admin')
+#20 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('destinos/admin')
+#21 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#23 {main} REQUEST_URI=/guiasyii/index.php?r=destinos/admin
+2012/02/02 21:19:58 [error] [exception.CException] exception 'CException' with message 'Propiedad "CCheckBoxColumn"."SelectableRows" no se encuentra definida.' in C:\xampp\htdocs\yii118\framework\base\CComponent.php:174
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): OrigenesController->createWidget()
 #5 C:\xampp\htdocs\guiasyii\protected\views\origenes\admin.php(56): OrigenesController->widget()
@@ -1269,19 +1480,29 @@ in C:\xampp\htdocs\guiasyii\protected\views\origenes\admin.php (56)
 in C:\xampp\htdocs\guiasyii\protected\controllers\OrigenesController.php (148)
 in C:\xampp\htdocs\guiasyii\index.php (13)
 2012/02/02 21:19:16 [error] [exception.CException] exception 'CException' with message 'Propiedad "CCheckBoxColumn"."SelectableRows" no se encuentra definida.' in C:\xampp\htdocs\yii118\framework\base\CComponent.php:174
+>>>>>>> b6f71f8324ff420845d78531799e5c6dc2371f1f
 Stack trace:
 #0 C:\xampp\htdocs\yii118\framework\YiiBase.php(225): CComponent->__set('SelectableRows', 10)
 #1 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(308): YiiBase::createComponent(Array, Object(CGridView))
 #2 C:\xampp\htdocs\yii118\framework\zii\widgets\grid\CGridView.php(279): CGridView->initColumns()
 #3 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(140): CGridView->init()
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): CBaseController->createWidget('zii.widgets.gri...', Array)
+<<<<<<< HEAD
+#5 C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php(57): CBaseController->widget('zii.widgets.gri...', Array)
+=======
 #5 C:\xampp\htdocs\guiasyii\protected\views\origenes\admin.php(56): CBaseController->widget('zii.widgets.gri...', Array)
+>>>>>>> b6f71f8324ff420845d78531799e5c6dc2371f1f
 #6 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(119): require('C:\xampp\htdocs...')
 #7 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(88): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
 #8 C:\xampp\htdocs\yii118\framework\web\CController.php(866): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
 #9 C:\xampp\htdocs\yii118\framework\web\CController.php(779): CController->renderPartial('admin', Array, true)
+<<<<<<< HEAD
+#10 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(148): CController->render('admin', Array)
+#11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionAdmin()
+=======
 #10 C:\xampp\htdocs\guiasyii\protected\controllers\OrigenesController.php(148): CController->render('admin', Array)
 #11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): OrigenesController->actionAdmin()
+>>>>>>> b6f71f8324ff420845d78531799e5c6dc2371f1f
 #12 C:\xampp\htdocs\yii118\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
 #13 C:\xampp\htdocs\yii118\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
 #14 C:\xampp\htdocs\yii118\framework\web\filters\CFilter.php(41): CFilterChain->run()
@@ -1291,6 +1512,15 @@ Stack trace:
 #18 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
 #19 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
 #20 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('admin')
+<<<<<<< HEAD
+#21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('destinos/admin')
+#22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#24 {main} REQUEST_URI=/guiasyii/index.php?r=destinos/admin
+2012/02/02 21:20:42 [error] [exception.CException] exception 'CException' with message 'Propiedad "CCheckBoxColumn"."SelectableRows" no se encuentra definida.' in C:\xampp\htdocs\yii118\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\YiiBase.php(225): CComponent->__set('SelectableRows', 10)
+=======
 #21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('origenes/admin')
 #22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
 #23 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
@@ -1358,7 +1588,11 @@ Stack trace:
 #3 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(140): CGridView->init()
 #4 C:\xampp\htdocs\yii118\framework\web\CBaseController.php(165): CBaseController->createWidget('zii.widgets.gri...', Array)
 <<<<<<< HEAD
+<<<<<<< HEAD
 #5 C:\xampp\htdocs\guiasyii\protected\views\guias\admin.php(66): CBaseController->widget('zii.widgets.gri...', Array)
+=======
+#5 C:\xampp\htdocs\guiasyii\protected\views\destinos\admin.php(57): CBaseController->widget('zii.widgets.gri...', Array)
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 #5 C:\xampp\htdocs\guiasyii\protected\views\origenes\admin.php(55): CBaseController->widget('zii.widgets.gri...', Array)
 >>>>>>> b6f71f8324ff420845d78531799e5c6dc2371f1f
@@ -1367,8 +1601,13 @@ Stack trace:
 #8 C:\xampp\htdocs\yii118\framework\web\CController.php(866): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
 #9 C:\xampp\htdocs\yii118\framework\web\CController.php(779): CController->renderPartial('admin', Array, true)
 <<<<<<< HEAD
+<<<<<<< HEAD
 #10 C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php(148): CController->render('admin', Array)
 #11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): GuiasController->actionAdmin()
+=======
+#10 C:\xampp\htdocs\guiasyii\protected\controllers\DestinosController.php(148): CController->render('admin', Array)
+#11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): DestinosController->actionAdmin()
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 #10 C:\xampp\htdocs\guiasyii\protected\controllers\OrigenesController.php(148): CController->render('admin', Array)
 #11 C:\xampp\htdocs\yii118\framework\web\actions\CInlineAction.php(50): OrigenesController->actionAdmin()
@@ -1382,6 +1621,7 @@ Stack trace:
 #18 C:\xampp\htdocs\yii118\framework\web\CController.php(283): CFilterChain->run()
 #19 C:\xampp\htdocs\yii118\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
 #20 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('admin')
+<<<<<<< HEAD
 <<<<<<< HEAD
 #21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/admin')
 #22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
@@ -1442,6 +1682,12 @@ in C:\xampp\htdocs\guiasyii\index.php (13)
 2012/02/02 21:57:04 [warning] [application] Failed to set unsafe attribute "fecha_baja" of "Guias".
 in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (71)
 in C:\xampp\htdocs\guiasyii\index.php (13)
+=======
+#21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('destinos/admin')
+#22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#24 {main} REQUEST_URI=/guiasyii/index.php?r=destinos/admin
+>>>>>>> 8140f3f9bfe5e1a3a305011c765f090683367aa2
 =======
 #21 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('origenes/admin')
 #22 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
