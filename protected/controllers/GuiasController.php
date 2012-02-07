@@ -7,7 +7,8 @@ class GuiasController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+	
+	
 	/**
 	 * @return array action filters
 	 */
@@ -31,7 +32,7 @@ class GuiasController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'asigna'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,7 +66,7 @@ class GuiasController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$model->fecha_asig = date("Y-m-d");
 		if(isset($_POST['Guias']))
 		{
 			$model->attributes=$_POST['Guias'];
@@ -76,6 +77,27 @@ class GuiasController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionAsigna()
+	{
+	
+		$model=new Guias;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		$model->fecha_asig = date("Y-m-d");
+		if(isset($_POST['Guias']))
+		{
+			$model->attributes=$_POST['Guias'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('asigna',array(
+			'model'=>$model,
+		));
+	
 	}
 
 	/**

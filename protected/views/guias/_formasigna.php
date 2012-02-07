@@ -17,9 +17,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'folio'); ?>
-		<?php echo $form->textField($model,'folio'); ?>
+		<?php //echo $form->textField($model,'folio'); ?>
+		<?php echo CHtml::textField('folio_ini[]','',array('size'=>12,'maxlength'=>10,)) ?>
 		<?php echo $form->error($model,'folio'); ?>
+		<b>Al Folio: </b> 
+		<?php echo CHtml::textField('folio_fin[]','',array('size'=>12,'maxlength'=>10,));
 
+		?>
 		 
 	</div>
 

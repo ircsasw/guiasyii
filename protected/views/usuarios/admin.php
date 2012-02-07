@@ -35,6 +35,11 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
+		array ('class'=>'CCheckBoxColumn',
+		'value' => '$data->id',
+		'selectableRows'=>10,
+		'id'=> 'chk',
+		),
 		
 		'id',
 		'usuario',

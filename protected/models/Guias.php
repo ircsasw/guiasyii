@@ -16,6 +16,7 @@
  */
 class Guias extends CActiveRecord
 {
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Guias the static model class
@@ -41,7 +42,7 @@ class Guias extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('serie, folio, fecha_asig, id_origen, id_asigna, id_destino', 'required'),
+			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
 			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('serie', 'length', 'max'=>10),
 			// The following rule is used by search().
