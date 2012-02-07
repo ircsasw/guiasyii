@@ -89,7 +89,12 @@ class GuiasController extends Controller
 		$model->fecha_asig = date("Y-m-d");
 		if(isset($_POST['Guias']))
 		{
+			//print_r($_POST);
+			print_r($_POST['folio_ini'][0]);
 			$model->attributes=$_POST['Guias'];
+			$model->folio= $_POST['Guias']['folio_ini'];
+			
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
