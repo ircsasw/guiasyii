@@ -92,8 +92,8 @@ class GuiasController extends Controller
 		{
 			$inicio = $_POST['folio_ini'][0];
 			$fin =$_POST['folio_fin'][0];
-			
-			for ( $i = $inicio;$i<=$fin ; $i=$i+1)
+			print_r($incio);
+			for ( $i = $inicio;$i<=$fin ; $i++)
 			{
 				$model=new Guias;
 				$model->id_origen = $_POST['id_origen'][0];
@@ -103,7 +103,7 @@ class GuiasController extends Controller
 				$model->folio=$i;
 				$model->save();
 			}
-			$this->redirect(array('view','id'=>$model->id));
+			//$this->redirect(array('admin'));
 		}
 		$this->render('asigna');
 	

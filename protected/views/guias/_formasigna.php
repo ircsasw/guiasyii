@@ -3,7 +3,10 @@
 <?php /* $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'guias-form',
 	'enableAjaxValidation'=>false,
-)); */?>
+)); */
+	echo CHtml::form(CHtml::normalizeUrl(''), 'post');
+
+	?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -67,6 +70,6 @@
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
-<?php //$this->endWidget(); ?>
+<?php /*$this->endWidget();*/ echo CHtml::endForm(); ?>
 
 </div><!-- form -->
