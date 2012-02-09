@@ -88,22 +88,21 @@ class GuiasController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
-		if(isset($_POST['folio_ini'][0]))
+		if(isset($_POST['folio_ini']))
 		{
-			$inicio = $_POST['folio_ini'][0];
-			$fin =$_POST['folio_fin'][0];
-			print_r($incio);
+			$inicio = $_POST['folio_ini'];
+			$fin =$_POST['folio_fin'];
 			for ( $i = $inicio;$i<=$fin ; $i++)
 			{
 				$model=new Guias;
-				$model->id_origen = $_POST['id_origen'][0];
-				$model->id_asigna = $_POST['id_asigna'][0];
-				$model->serie = $_POST['serie'][0];
-				$model->fecha_asig = $_POST['fecha_asig'][0];
+				$model->id_origen = $_POST['id_origen'];
+				$model->id_asigna = $_POST['id_asigna'];
+				$model->serie = $_POST['serie'];
+				$model->fecha_asig = $_POST['fecha_asig'];
 				$model->folio=$i;
 				$model->save();
 			}
-			//$this->redirect(array('admin'));
+			$this->redirect(array('admin'));
 		}
 		$this->render('asigna');
 	
