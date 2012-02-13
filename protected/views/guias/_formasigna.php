@@ -14,6 +14,7 @@
 
 	<div class="row">
 		<?php //echo form->labelEx($model,'serie'); ?>
+		<b>Serie: </b> 
 		<?php echo CHtml::textField('serie','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'serie',array('size'=>10,'maxlength'=>10)); ?>
 		<?php //echo $form->error($model,'serie'); ?>
 	</div>
@@ -21,6 +22,7 @@
 	<div class="row">
 		<?php //echo $form->labelEx($model,'folio'); ?>
 		<?php //echo $form->textField($model,'folio'); ?>
+		<b>Del Folio: </b> 
 		<?php echo CHtml::textField('folio_ini','',array('size'=>12,'maxlength'=>10,)) ?>
 		<?php //echo $form->error($model,'folio'); ?>
 		<b>Al Folio: </b> 
@@ -32,11 +34,16 @@
 
 	<div class="row">
 		<?php //echo $form->labelEx($model,'fecha_asig'); ?>
+		<b>Fecha de Asignacion: </b> 
 		<?php echo CHtml::textField('fecha_asig',date("Y-m-d"),array('size'=>12,'maxlength'=>10,))// echo $form->textField($model,'fecha_asig'); ?>
 		<?php //echo $form->error($model,'fecha_asig'); ?>
 	</div>
 
 	<div class="row">
+		<?php 
+ 			$datos = CHtml::listData(Origenes::model()->findAll(),'id','origen');
+ 			echo $form->activeDropDownList($model,'id',$datos); 
+ 		?>
 		<?php // echo $form->labelEx($model,'id_origen'); ?>
 		<?php echo CHtml::textField('id_origen','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'id_origen'); ?>
 		<?php //echo $form->error($model,'id_origen'); ?>
@@ -44,7 +51,7 @@
 
 	<div class="row">
 		<?php //echo $form->labelEx($model,'id_asigna'); ?>
-		<?php echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,))//echo $form->textField($model,'id_asigna'); ?>
+		<?php //echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,))//echo $form->textField($model,'id_asigna'); ?>
 		<?php //echo $form->error($model,'id_asigna'); ?>
 	</div>
 <?php /*

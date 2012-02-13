@@ -81,10 +81,6 @@ class GuiasController extends Controller
 	
 	public function actionAsigna()
 	{
-	
-		//$model=new Guias;
-		//$inicio = $_POST['folio_ini'][0];
-		//$fin =$_POST['folio_fin'][0];
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
@@ -92,17 +88,23 @@ class GuiasController extends Controller
 		{
 			$inicio = $_POST['folio_ini'];
 			$fin =$_POST['folio_fin'];
-			for ( $i = $inicio;$i<=$fin ; $i++)
+			if ($inicio > $fin)
 			{
-				$model=new Guias;
-				$model->id_origen = $_POST['id_origen'];
-				$model->id_asigna = $_POST['id_asigna'];
-				$model->serie = $_POST['serie'];
-				$model->fecha_asig = $_POST['fecha_asig'];
-				$model->folio=$i;
-				$model->save();
+				echo "Error!!!";
 			}
-			$this->redirect(array('admin'));
+			else {
+				for ( $i = $inicio;$i<=$fin ; $i++)
+				{
+					$model=new Guias;
+					$model->id_origen = $_POST['id_origen'];
+					$model->id_asigna = $_POST['id_asigna'];
+					$model->serie = $_POST['serie'];
+					$model->fecha_asig = $_POST['fecha_asig'];
+					$model->folio=$i;
+					$model->save();
+				}
+				$this->redirect(array('asigna'));
+			}
 		}
 		$this->render('asigna');
 	
