@@ -126,14 +126,14 @@ class GuiasController extends Controller
 				for ( $i = $inicio;$i<=$fin ; $i++)
 				{
 					$model=new Guias;
-					$model->id_origen = $_POST['id_origen'];
-					$model->id_asigna = $_POST['id_asigna'];
 					$model->serie = $_POST['serie'];
 					$model->fecha_asig = $_POST['fecha_asig'];
 					$model->folio=$i;
+					$model->id_origen = $_POST['id_origen'];
+					$model->id_asigna = $_POST['id_asigna'];
 					$model->save();
 				}
-				$this->redirect(array('asigna'));
+				$this->redirect(array('admin'));
 			}
 		}
 		$this->render('asigna');
@@ -235,3 +235,4 @@ class GuiasController extends Controller
 		}
 	}
 }
+?>

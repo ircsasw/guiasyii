@@ -23,7 +23,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_asigna')); ?>:</b>
 	<?php echo CHtml::encode($data->id_asigna); ?>
 	<br />
-
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_baja')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha_baja); ?>
 	<br />

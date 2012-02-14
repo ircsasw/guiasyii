@@ -5,7 +5,6 @@
 	'enableAjaxValidation'=>false,
 )); */
 	echo CHtml::form(CHtml::normalizeUrl(''), 'post');
-
 	?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -38,11 +37,12 @@
 		<?php echo CHtml::textField('fecha_asig',date("Y-m-d"),array('size'=>12,'maxlength'=>10,))// echo $form->textField($model,'fecha_asig'); ?>
 		<?php //echo $form->error($model,'fecha_asig'); ?>
 	</div>
-
+	
 	<div class="row">
+	<b>ID Origen: </b> 
 		<?php 
  			$datos = CHtml::listData(Origenes::model()->findAll(),'id','origen');
- 			echo CHtml::activeDropDownList($model,'id',$datos); 
+ 			echo  CHtml::activeDropDownList(Origenes::model(),'id',$datos,array('empty'=>'---Selecione Origen---')); 
  		?>
 		<?php // echo $form->labelEx($model,'id_origen'); ?>
 		<?php echo CHtml::textField('id_origen','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'id_origen'); ?>
@@ -51,7 +51,7 @@
 
 	<div class="row">
 		<?php //echo $form->labelEx($model,'id_asigna'); ?>
-		<?php //echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,))//echo $form->textField($model,'id_asigna'); ?>
+		<?php echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,))//echo $form->textField($model,'id_asigna'); ?>
 		<?php //echo $form->error($model,'id_asigna'); ?>
 	</div>
 <?php /*
