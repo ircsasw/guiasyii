@@ -83,7 +83,7 @@ class GuiasController extends Controller
 	{
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		
+/*		
 		if(isset($_POST['folio_ini']))
 		{
 			$inicio = $_POST['folio_ini'];
@@ -107,9 +107,38 @@ class GuiasController extends Controller
 			}
 		}
 		$this->render('asigna');
-	
+	**/
+		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
+		$model=Guias::model()->findAll('serie=:cSerie', array(':cSerie'=>'AA'));
+		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
+		$html = $this->renderPartial('_catalog', array('model'=>$model), true, true);
+		//$var=date('d-M-Y');
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor("MMS");
+		$pdf->SetTitle("Project's report");
+		$pdf->SetSubject("TCPDF Tutorial");
+		$pdf->SetKeywords("TCPDF, PDF, example, test, guide");
+		//$pdf->SetHeaderData("mms.png", '30', "Project Data", "Date: $var ");
+		//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
+		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+		$pdf->SetHeaderMargin(5);
+		$pdf->SetFooterMargin(10);
+		$pdf->SetTopMargin(25);
+		//$pdf->setPrintHeader(true);
+		//$pdf->setPrintFooter(True);
+		//$pdf->AliasNbPages();
+		$pdf->SetAutoPageBreak(TRUE,'16');
+		//$pdf->Header();
+		$pdf->AddPage();
+		//$pdf->SetFont("times", "BI", 10);
+		$pdf->writeHTML($html, true, false, false, false, '');
+		$pdf->lastPage();
+		$pdf->Output("example_002.pdf", "I");
+		//return $pdf;
 	}
+		
 
+	
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
