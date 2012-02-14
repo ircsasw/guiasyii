@@ -42,7 +42,7 @@
 	<div class="row">
 		<?php 
  			$datos = CHtml::listData(Origenes::model()->findAll(),'id','origen');
- 			echo $form->activeDropDownList($model,'id',$datos); 
+ 			echo CHtml::activeDropDownList($model,'id',$datos); 
  		?>
 		<?php // echo $form->labelEx($model,'id_origen'); ?>
 		<?php echo CHtml::textField('id_origen','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'id_origen'); ?>

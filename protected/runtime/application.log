@@ -2716,3 +2716,43 @@ REQUEST_URI=/guiasyii/index.php?r=guias/asigna
 in C:\xampp\htdocs\guiasyii\protected\extensions\tcpdf\tcpdf\tcpdf.php (22537)
 in C:\xampp\htdocs\guiasyii\protected\extensions\tcpdf\tcpdf\tcpdf.php (6380)
 in C:\xampp\htdocs\guiasyii\protected\extensions\tcpdf\tcpdf\tcpdf.php (22559)
+2012/02/14 18:50:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "crearepo" solicitada.' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('crearepo')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('crearepo')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/crearepo')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=guias/crearepo
+2012/02/14 18:50:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "crearepo" solicitada.' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('crearepo')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('crearepo')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/crearepo')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=guias/crearepo
+2012/02/14 18:51:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "crearepo" solicitada.' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('crearepo')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('crearepo')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/crearepo')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=guias/crearepo
+2012/02/14 18:52:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "crearepo" solicitada.' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('crearepo')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('crearepo')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/crearepo')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=guias/crearepo
+2012/02/14 18:52:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "crearepo" solicitada.' in C:\xampp\htdocs\yii118\framework\web\CController.php:477
+Stack trace:
+#0 C:\xampp\htdocs\yii118\framework\web\CController.php(262): CController->missingAction('crearepo')
+#1 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(277): CController->run('crearepo')
+#2 C:\xampp\htdocs\yii118\framework\web\CWebApplication.php(136): CWebApplication->runController('guias/crearepo')
+#3 C:\xampp\htdocs\yii118\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/guiasyii/index.php?r=guias/crearepo

@@ -32,7 +32,7 @@ class GuiasController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'asigna'),
+				'actions'=>array('create','update', 'asigna', 'crearepo'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -78,36 +78,9 @@ class GuiasController extends Controller
 			'model'=>$model,
 		));
 	}
-	
-	public function actionAsigna()
+
+	public function actioncrearepo()
 	{
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-/*		
-		if(isset($_POST['folio_ini']))
-		{
-			$inicio = $_POST['folio_ini'];
-			$fin =$_POST['folio_fin'];
-			if ($inicio > $fin)
-			{
-				echo "Error!!!";
-			}
-			else {
-				for ( $i = $inicio;$i<=$fin ; $i++)
-				{
-					$model=new Guias;
-					$model->id_origen = $_POST['id_origen'];
-					$model->id_asigna = $_POST['id_asigna'];
-					$model->serie = $_POST['serie'];
-					$model->fecha_asig = $_POST['fecha_asig'];
-					$model->folio=$i;
-					$model->save();
-				}
-				$this->redirect(array('asigna'));
-			}
-		}
-		$this->render('asigna');
-	**/
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 		$model=Guias::model()->findAll('serie=:cSerie', array(':cSerie'=>'AA'));
 		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
@@ -135,10 +108,37 @@ class GuiasController extends Controller
 		$pdf->lastPage();
 		$pdf->Output("example_002.pdf", "I");
 		//return $pdf;
-	}
 		
-
+	}
+	public function actionAsigna()
+	{
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		
+		if(isset($_POST['folio_ini']))
+		{
+			$inicio = $_POST['folio_ini'];
+			$fin =$_POST['folio_fin'];
+			if ($inicio > $fin)
+				echo "Error!!!";
+			else 
+			{
+				for ( $i = $inicio;$i<=$fin ; $i++)
+				{
+					$model=new Guias;
+					$model->id_origen = $_POST['id_origen'];
+					$model->id_asigna = $_POST['id_asigna'];
+					$model->serie = $_POST['serie'];
+					$model->fecha_asig = $_POST['fecha_asig'];
+					$model->folio=$i;
+					$model->save();
+				}
+				$this->redirect(array('asigna'));
+			}
+		}
+		$this->render('asigna');
 	
+			}
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
