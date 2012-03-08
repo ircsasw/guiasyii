@@ -3271,3 +3271,154 @@ Stack trace:
 REQUEST_URI=/guiasyii/index.php?r=guias/asigna
 in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (133)
 in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/03/07 12:15:09 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.mbmenu.MbMenu" is invalid. Make sure it points to an existing PHP file.' in C:\xampp\htdocs\guiasyii\framework\YiiBase.php:318
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CWidgetFactory.php(147): YiiBase::import('application.ext...', true)
+#1 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'application.ext...', Array)
+#2 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(173): CBaseController->createWidget('application.ext...', Array)
+#3 C:\xampp\htdocs\guiasyii\themes\shadow_dancer\views\layouts\main.php(61): CBaseController->widget('application.ext...', Array)
+#4 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\guiasyii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\guiasyii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="con...')
+#8 C:\xampp\htdocs\guiasyii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="con...')
+#9 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#10 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#11 C:\xampp\htdocs\guiasyii\themes\shadow_dancer\views\layouts\column1.php(7): CBaseController->endContent()
+#12 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\guiasyii\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\guiasyii\framework\web\actions\CViewAction.php(141): CController->render('pages/graphs')
+#16 C:\xampp\htdocs\guiasyii\framework\web\actions\CAction.php(75): CViewAction->run()
+#17 C:\xampp\htdocs\guiasyii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#18 C:\xampp\htdocs\guiasyii\framework\web\CController.php(287): CController->runAction(Object(CViewAction))
+#19 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#20 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('page')
+#21 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#22 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/page&view=graphs
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/page&view=forms
+---
+2012/03/07 12:21:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "bajas" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('bajas')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('bajas')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('guias/bajas')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=guias/bajas
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
+2012/03/07 12:21:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "catalogos" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('catalogos')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('catalogos')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/catalogos')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/catalogos
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/bajas
+---
+2012/03/07 13:18:17 [error] [exception.CException] exception 'CException' with message 'Propiedad "LoginForm"."username" no se encuentra definida.' in C:\xampp\htdocs\guiasyii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(2044): CComponent->__get('username')
+#1 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 C:\xampp\htdocs\guiasyii\framework\web\widgets\CActiveForm.php(575): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 C:\xampp\htdocs\guiasyii\themes\shadow_dancer\views\site\login.php(25): CActiveForm->textField(Object(LoginForm), 'username')
+#5 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\guiasyii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\guiasyii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 C:\xampp\htdocs\guiasyii\protected\controllers\SiteController.php(92): CController->render('login', Array)
+#10 C:\xampp\htdocs\guiasyii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 C:\xampp\htdocs\guiasyii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\guiasyii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('login')
+#15 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/login')
+#16 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/login
+HTTP_REFERER=http://localhost/guiasyii/index.php
+---
+2012/03/07 13:18:28 [error] [exception.CException] exception 'CException' with message 'Propiedad "LoginForm"."username" no se encuentra definida.' in C:\xampp\htdocs\guiasyii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(2044): CComponent->__get('username')
+#1 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 C:\xampp\htdocs\guiasyii\framework\web\widgets\CActiveForm.php(575): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 C:\xampp\htdocs\guiasyii\themes\shadow_dancer\views\site\login.php(25): CActiveForm->textField(Object(LoginForm), 'username')
+#5 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\guiasyii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\guiasyii\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#9 C:\xampp\htdocs\guiasyii\protected\controllers\SiteController.php(92): CController->render('login', Array)
+#10 C:\xampp\htdocs\guiasyii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#11 C:\xampp\htdocs\guiasyii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\guiasyii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('login')
+#15 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/login')
+#16 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/login
+---
+2012/03/07 13:22:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "catalogos" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('catalogos')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('catalogos')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/catalogos')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/catalogos
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
+2012/03/07 13:28:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "catalogos" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('catalogos')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('catalogos')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/catalogos')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/catalogos
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
+2012/03/07 13:30:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "catalogos" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('catalogos')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('catalogos')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/catalogos')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/catalogos
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
+2012/03/07 14:30:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "acercade" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('acercade')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('acercade')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/acercade')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/acercade
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
+---
+2012/03/07 15:02:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "theme/admin"' in C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('theme/admin')
+#1 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/guiasyii/index.php?r=theme/admin
+---

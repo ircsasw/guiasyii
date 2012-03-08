@@ -79,7 +79,7 @@ class GuiasController extends Controller
 		));
 	}
 
-	public function actioncrearepo()
+	public function actionCrearepo()
 	{
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 		$model=Guias::model()->findAll('serie=:cSerie', array(':cSerie'=>'AA'));
@@ -114,29 +114,33 @@ class GuiasController extends Controller
 	{
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		
+		$modeladmin = new Guias('search');
+		$modeladmin->unsetAttributes();  // clear any default values
+		if(isset($_GET['Guias']))
+			$modeladmin->attributes=$_GET['Guias'];
+
 		if(isset($_POST['folio_ini']))
 		{
 			$inicio = $_POST['folio_ini'];
-			$fin =$_POST['folio_fin'];
+			$fin = $_POST['folio_fin'];
 			if ($inicio > $fin)
 				echo "Error!!!";
 			else 
 			{
 				for ( $i = $inicio;$i<=$fin ; $i++)
 				{
-					$model=new Guias;
+					$model = new Guias;
 					$model->serie = $_POST['serie'];
 					$model->fecha_asig = $_POST['fecha_asig'];
-					$model->folio=$i;
+					$model->folio = $i;
 					$model->id_origen = $_POST['id_origen'];
 					$model->id_asigna = $_POST['id_asigna'];
 					$model->save();
 				}
-				$this->redirect(array('admin'));
+				$this->render('asigna', array('model'=>$model, 'modeladmin'=>$modeladmin));
 			}
 		}
-		$this->render('asigna');
+		$this->render('asigna', array('model'=>$model, 'modeladmin'=>$modeladmin));
 	
 			}
 	/**

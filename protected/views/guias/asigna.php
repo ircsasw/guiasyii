@@ -5,11 +5,51 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Guias', 'url'=>array('index')),
-	array('label'=>'Manage Guias', 'url'=>array('admin')),
+	array('label'=>'Lista Guias', 'url'=>array('index')),
+	array('label'=>'Administrar Guias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Guias</h1>
+<h1>Asignar Guias</h1>
 
 <?php echo $this->renderPartial('_formasigna'); ?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'guias-grid',
+	'dataProvider'=>$modeladmin->search(),
+	'filter'=>$modeladmin,
+	'columns'=>array(
+		array(
+		'class'=>'CCheckBoxColumn',
+		'value'=>'$data->id',
+		'selectableRows'=> 10,
+		'id'=>'chk',
+		),
+		//'id',
+		'serie',
+		'folio',
+		'fecha_asig',
+		array(
+			'name'=>'id_origen',
+			'value'=>'$data->idOrigen->origen',
+		),
+		array(
+			'name'=>'id_asigna',
+			'value'=>'$data->idUsuarioA->usuario',
+		),
+		'fecha_baja',
+		array(
+			'name'=>'id_destino',
+			'value'=>'$data->idDestino->destino',
+		),
+		array(
+			'name'=>'id_baja',
+			'value'=>'$data->idUsuarioB->usuario',
+		),
+		/*
+		array(
+			'class'=>'CButtonColumn',
+		),
+		*/
+	),
+)); ?>

@@ -1,82 +1,42 @@
-<div class="form">
+<div class="wide form">
 
-<?php /* $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'guias-form',
-	'enableAjaxValidation'=>false,
-)); */
-	echo CHtml::form(CHtml::normalizeUrl(''), 'post');
-	?>
+<?php echo CHtml::form(CHtml::normalizeUrl(''), 'post'); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 
 	<?php //echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php //echo form->labelEx($model,'serie'); ?>
-		<b>Serie: </b> 
-		<?php echo CHtml::textField('serie','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'serie',array('size'=>10,'maxlength'=>10)); ?>
-		<?php //echo $form->error($model,'serie'); ?>
+		<label>Serie:</label> 
+		<?php echo CHtml::textField('serie','',array('size'=>12,'maxlength'=>10,)) ?>
 	</div>
 
 	<div class="row">
-		<?php //echo $form->labelEx($model,'folio'); ?>
-		<?php //echo $form->textField($model,'folio'); ?>
-		<b>Del Folio: </b> 
+		<label>Del Folio:</label> 
 		<?php echo CHtml::textField('folio_ini','',array('size'=>12,'maxlength'=>10,)) ?>
-		<?php //echo $form->error($model,'folio'); ?>
-		<b>Al Folio: </b> 
-		<?php echo CHtml::textField('folio_fin','',array('size'=>12,'maxlength'=>10,));
-
-		?>
-		 
+		<b style="margin-right: 10px; text-aling: right; width: 100px; font-size: 0.9em; font-weight: bold; border: 0 none; padding: 0; vertical-align: baseline;">Al:</b>
+		<?php echo CHtml::textField('folio_fin','',array('size'=>12,'maxlength'=>10,)); ?>
 	</div>
 
 	<div class="row">
-		<?php //echo $form->labelEx($model,'fecha_asig'); ?>
-		<b>Fecha de Asignacion: </b> 
-		<?php echo CHtml::textField('fecha_asig',date("Y-m-d"),array('size'=>12,'maxlength'=>10,))// echo $form->textField($model,'fecha_asig'); ?>
-		<?php //echo $form->error($model,'fecha_asig'); ?>
+		<label>Asignado El:</label> 
+		<?php echo CHtml::textField('fecha_asig',date("Y-m-d"),array('size'=>12,'maxlength'=>10,)) ?>
 	</div>
 	
 	<div class="row">
-	<b>ID Origen: </b> 
+		<label>Origen:</label> 
 		<?php 
  			$datos = CHtml::listData(Origenes::model()->findAll(),'id','origen');
  			echo  CHtml::activeDropDownList(Origenes::model(),'id',$datos,array('empty'=>'---Selecione Origen---')); 
  		?>
-		<?php // echo $form->labelEx($model,'id_origen'); ?>
-		<?php echo CHtml::textField('id_origen','',array('size'=>12,'maxlength'=>10,)) //echo $form->textField($model,'id_origen'); ?>
-		<?php //echo $form->error($model,'id_origen'); ?>
+		<?php //echo CHtml::textField('id_origen','',array('size'=>12,'maxlength'=>10,)); ?>
+		<?php //echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,)); ?>
 	</div>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'id_asigna'); ?>
-		<?php echo CHtml::textField('id_asigna','',array('size'=>12,'maxlength'=>10,))//echo $form->textField($model,'id_asigna'); ?>
-		<?php //echo $form->error($model,'id_asigna'); ?>
-	</div>
-<?php /*
-	<div class="row">
-		<?php echo $form->labelEx($model,'fecha_baja'); ?>
-		<?php echo $form->textField($model,'fecha_baja'); ?>
-		<?php echo $form->error($model,'fecha_baja'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_destino'); ?>
-		<?php echo $form->textField($model,'id_destino'); ?>
-		<?php echo $form->error($model,'id_destino'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_baja'); ?>
-		<?php echo $form->textField($model,'id_baja'); ?>
-		<?php echo $form->error($model,'id_baja'); ?>
-	</div>
-*/?>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Create'); ?>
+		<?php echo CHtml::submitButton('Asignar'); ?>
 	</div>
 
-<?php /*$this->endWidget();*/ echo CHtml::endForm(); ?>
+<?php echo CHtml::endForm(); ?>
 
 </div><!-- form -->

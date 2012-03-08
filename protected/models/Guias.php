@@ -59,6 +59,10 @@ class Guias extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'idUsuarioA' => array(self::BELONGS_TO, 'Usuarios', 'id_asigna'),
+			'idUsuarioB' => array(self::BELONGS_TO, 'Usuarios', 'id_baja'),
+			'idOrigen' => array(self::BELONGS_TO, 'Origenes', 'id_origen'),
+			'idDestino' => array(self::BELONGS_TO, 'Destinos', 'id_destino'),
 		);
 	}
 
@@ -71,12 +75,12 @@ class Guias extends CActiveRecord
 			'id' => 'ID',
 			'serie' => 'Serie',
 			'folio' => 'Folio',
-			'fecha_asig' => 'Fecha Asig',
-			'id_origen' => 'Id Origen',
-			'id_asigna' => 'Id Asigna',
+			'fecha_asig' => 'Fecha Asigna',
+			'id_origen' => 'Origen',
+			'id_asigna' => 'Asigna',
 			'fecha_baja' => 'Fecha Baja',
-			'id_destino' => 'Id Destino',
-			'id_baja' => 'Id Baja',
+			'id_destino' => 'Destino',
+			'id_baja' => 'Baja',
 		);
 	}
 
