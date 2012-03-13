@@ -1,13 +1,13 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Iniciar sesión';
+$this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
-	'Iniciar sesión',
+	'Login',
 );
 ?>
 
-<h1>Iniciar sesión</h1>
+<h1>Login</h1>
 
-<p>Por favor, rellene el siguiente formulario con sus credenciales de inicio de sesión:</p>
+<p>Please fill out the following form with your login credentials:</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -18,7 +18,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'usuario'); ?>
@@ -30,6 +30,9 @@ $this->breadcrumbs=array(
 		<?php echo $form->labelEx($model,'pass'); ?>
 		<?php echo $form->passwordField($model,'pass'); ?>
 		<?php echo $form->error($model,'pass'); ?>
+		<p class="hint">
+			Hint: You may login with <tt>demo/demo</tt> or <tt>admin/admin</tt>.
+		</p>
 	</div>
 
 	<div class="row rememberMe">
@@ -39,7 +42,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Iniciar'); ?>
+		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
