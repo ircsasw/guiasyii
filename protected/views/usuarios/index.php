@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Usuarios', 'url'=>array('create')),
-	array('label'=>'Manage Usuarios', 'url'=>array('admin')),
+	array('label'=>'Crear Usuario', 'url'=>array('create')),
+	array('label'=>'Administrar Usuarios', 'url'=>array('admin')),
 );
 ?>
 

@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
 	'Destinos'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Destinos', 'url'=>array('index')),
-	array('label'=>'Manage Destinos', 'url'=>array('admin')),
+	array('label'=>'Lista de Destinos', 'url'=>array('index')),
+	array('label'=>'Administrar Destinos', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Destinos</h1>
+<h1>Crear Destinos</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

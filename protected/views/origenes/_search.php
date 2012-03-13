@@ -6,17 +6,12 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'origen'); ?>
 		<?php echo $form->textField($model,'origen',array('size'=>40,'maxlength'=>40)); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

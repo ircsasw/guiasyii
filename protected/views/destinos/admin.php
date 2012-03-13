@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
 	'Destinos'=>array('index'),
-	'Manage',
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List Destinos', 'url'=>array('index')),
-	array('label'=>'Create Destinos', 'url'=>array('create')),
+	array('label'=>'Lista de Destinos', 'url'=>array('index')),
+	array('label'=>'Crear Destino', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,10 +23,10 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Destinos</h1>
+<h1>Administrar Destinos</h1>
 
 
-<?php echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -44,7 +44,7 @@ $('.search-form form').submit(function(){
 			'selectableRows'=>10,
 			'id'=>'chk'
 		),
-		'id',
+		//'id',
 		'destino',
 		array(
 			'class'=>'CButtonColumn',

@@ -1,24 +1,24 @@
 <?php
 $this->breadcrumbs=array(
 	'Origenes'=>array('index'),
-	$model->id,
+	$model->origen,
 );
 
 $this->menu=array(
-	array('label'=>'List Origenes', 'url'=>array('index')),
-	array('label'=>'Create Origenes', 'url'=>array('create')),
-	array('label'=>'Update Origenes', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Origenes', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Origenes', 'url'=>array('admin')),
+	array('label'=>'Lista de Origenes', 'url'=>array('index')),
+	array('label'=>'Crear Origen', 'url'=>array('create')),
+	array('label'=>'Uctualizar Origen', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Borrar Origen', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'seguro que desea borrar este Origen?')),
+	array('label'=>'Administrar Origenes', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Origenes #<?php echo $model->id; ?></h1>
+<h1>Ver Origen <?php echo $model->origen; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
+		//'id',
 		'origen',
 	),
 )); ?>

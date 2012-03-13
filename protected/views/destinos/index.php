@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Destinos', 'url'=>array('create')),
-	array('label'=>'Manage Destinos', 'url'=>array('admin')),
+	array('label'=>'Crear Destino', 'url'=>array('create')),
+	array('label'=>'Administrar Destinos', 'url'=>array('admin')),
 );
 ?>
 

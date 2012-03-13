@@ -1,14 +1,8 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usuario')); ?>:</b>
-	<?php echo CHtml::encode($data->usuario); ?>
-
-	<b><?php //echo CHtml::encode($data->getAttributeLabel('pass')); ?></b>
-	<?php //echo CHtml::encode($data->pass); ?>
+	<?php echo CHtml::link(CHtml::encode($data->usuario), array('view', 'id'=>$data->id)); ?>
+	<br />
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre')); ?>:</b>

@@ -35,6 +35,7 @@ class Origenes extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('origen', 'required'),
+			array('origen', 'unique'),
 			array('origen', 'length', 'max'=>40),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -59,7 +60,7 @@ class Origenes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Clave',
 			'origen' => 'Origen',
 		);
 	}

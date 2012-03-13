@@ -1,28 +1,17 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Calendar';
+$this->pageTitle=Yii::app()->name . ' - Acerca de';
 $this->breadcrumbs=array(
-	'Calendar',
+	'Acerca de',
 );
 ?>
-<h1>Calendar</h1>
+<h1>Control de guias</h1>
+<h2>Versión 2.0.0</h2>
+<br/>
 
-<?php
-$this->widget('application.extensions.fullcalendar.FullcalendarGraphWidget', 
-    array(
-        'data'=>array(
-                'title'=> 'All Day Event',
-                'start'=> '2012-01-23',
-				'end'=> '2012-01-25',
-        ),
-        'options'=>array(
-            'editable'=>true,
-        ),
-        'htmlOptions'=>array(
-               'class'=>'cal_theme',
-			   'style'=>'width:910px;margin: 0 auto;'
-        ),
-    )
-);
-?>
-<p>This is a "static" page. You may change the content of this page
-by updating the file <tt><?php echo __FILE__; ?></tt>.</p>
+<p>
+&copy; <?php echo date('Y'); ?> Ivonne Collection
+<br/>
+Desarrollado por <a href='http://www.ircsasoftware.com.mx'>IRCSA Software</a>
+<br/>
+<?php echo Yii::powered(); ?>.
+</p>

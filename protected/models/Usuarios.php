@@ -46,6 +46,7 @@ class Usuarios extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('usuario, pass, nombre', 'required'),
+			array('usuario', 'unique'),
 			array('usuario', 'length', 'max'=>40),
 			array('pass', 'length', 'max'=>100),
 			array('nombre', 'length', 'max'=>30),
@@ -72,9 +73,9 @@ class Usuarios extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Clave',
 			'usuario' => 'Usuario',
-			'pass' => 'Pass',
+			'pass' => 'Contraseña',
 			'nombre' => 'Nombre',
 		);
 	}

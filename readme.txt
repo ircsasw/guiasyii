@@ -1,6 +1,7 @@
 Notas del proyecto
 ==================
-
+Templete
+http://webapplicationthemes.com/index.php/site/user_guide
 
 
 Algunas referencias

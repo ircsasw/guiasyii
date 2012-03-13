@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
-	'Manage',
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List Usuarios', 'url'=>array('index')),
-	array('label'=>'Create Usuarios', 'url'=>array('create')),
+	array('label'=>'Lista de Usuarios', 'url'=>array('index')),
+	array('label'=>'Crear Usuario', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<h1>Administrar Usuarios</h1>
+
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -40,10 +42,9 @@ $('.search-form form').submit(function(){
 		'selectableRows'=>10,
 		'id'=> 'chk',
 		),
-		
-		'id',
+		//'id',
 		'usuario',
-		'pass',
+		//'pass',
 		'nombre',
 		array(
 			'class'=>'CButtonColumn',

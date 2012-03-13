@@ -3422,3 +3422,116 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/guiasyii/index.php?r=theme/admin
 ---
+2012/03/12 15:08:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "bajas" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('bajas')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('bajas')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('guias/bajas')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=guias/bajas
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
+2012/03/12 15:28:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "acercade" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('acercade')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('acercade')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/acercade')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/acercade
+HTTP_REFERER=http://localhost/guiasyii/index.php
+---
+2012/03/12 16:10:30 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\xampp\htdocs\guiasyii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\guiasyii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\guiasyii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('view')
+#9 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('origenes/view')
+#10 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/guiasyii/index.php?r=origenes/view
+---
+2012/03/12 19:19:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "acercade" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('acercade')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('acercade')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/acercade')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/acercade
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
+---
+2012/03/12 19:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "pages" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('pages')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('pages')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/pages/abou...')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/pages/about
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
+---
+2012/03/12 19:21:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "about" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('about')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('about')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/about')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/about
+---
+2012/03/12 19:21:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "about"' in C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('about')
+#1 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/guiasyii/index.php?r=about
+---
+2012/03/12 19:23:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "pages" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('pages')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('pages')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/pages/abou...')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/pages/about
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
+---
+2012/03/12 19:26:45 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.fullcalendar.FullcalendarGraphWidget" is invalid. Make sure it points to an existing PHP file.' in C:\xampp\htdocs\guiasyii\framework\YiiBase.php:318
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CWidgetFactory.php(147): YiiBase::import('application.ext...', true)
+#1 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'application.ext...', Array)
+#2 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(173): CBaseController->createWidget('application.ext...', Array)
+#3 C:\xampp\htdocs\guiasyii\themes\shadow_dancer\views\site\pages\about.php(25): CBaseController->widget('application.ext...', Array)
+#4 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', NULL, true)
+#6 C:\xampp\htdocs\guiasyii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', NULL, true)
+#7 C:\xampp\htdocs\guiasyii\framework\web\CController.php(783): CController->renderPartial('pages/about', NULL, true)
+#8 C:\xampp\htdocs\guiasyii\protected\controllers\SiteController.php(136): CController->render('pages/about')
+#9 C:\xampp\htdocs\guiasyii\framework\web\actions\CInlineAction.php(50): SiteController->actionAbout()
+#10 C:\xampp\htdocs\guiasyii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\guiasyii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('about')
+#14 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/about')
+#15 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/guiasyii/index.php?r=site/about
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
+---

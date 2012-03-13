@@ -5,7 +5,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -23,14 +23,21 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'nombre'); ?>
-		<?php echo $form->textField($model,'nombre',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->textField($model,'nombre',array('size'=>30,'maxlength'=>30, 'onChange'=>'conMayusculas(this)')); ?>
 		<?php echo $form->error($model,'nombre'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<script type="text/javascript">  
+	// Al salir del campo convierte a mayusculas
+	function conMayusculas(field) {  
+		field.value = field.value.toUpperCase();
+	}
+</script>

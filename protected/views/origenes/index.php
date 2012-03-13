@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Origenes', 'url'=>array('create')),
-	array('label'=>'Manage Origenes', 'url'=>array('admin')),
+	array('label'=>'Crear Origen', 'url'=>array('create')),
+	array('label'=>'Administrar Origenes', 'url'=>array('admin')),
 );?>
 
 <h1>Origenes</h1>

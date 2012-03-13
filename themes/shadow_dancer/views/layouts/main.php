@@ -28,7 +28,7 @@
 
 <div class="container" id="page">
 	<div id="topnav">
-		<div class="topnav_text"><a href='#'>Inicio</a> | <a href='#'>Mi cuenta</a> | <a href='#'>Configuración</a> | <a href= <?php echo Yii::app()->request->baseUrl; ?>/index.php?r=site/logout >Salir</a> </div>
+		<div class="topnav_text"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">Inicio</a> <?php if (!Yii::app()->user->isGuest) {?> | <a href='#'>Usuario: <?php echo Yii::app()->user->name; ?></a> <?php }?> | <?php if (!Yii::app()->user->isGuest) {?> <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=site/logout" >Salir</a><?php } else {?> <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=site/index" >Entrar</a><?php }?></div>
 	</div>
 	<div id="header">
 		<div id="logo">
@@ -66,11 +66,11 @@
     
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Inicio', 'url'=>array('/site/index')),
-				array('label'=>'Asignaciones', 'url'=>array('/guias/asigna')),
-				array('label'=>'Bajas', 'url'=>array('/guias/bajas')),
-				array('label'=>'Reportes', 'url'=>array('/guias/reportes')),
-				array('label'=>'Acerca de', 'url'=>array('/site/acercade')),
+				array('label'=>'Inicio', 'url'=>array('/site/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Asignaciones', 'url'=>array('/guias/asigna'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Bajas', 'url'=>array('/guias/bajas'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Reportes', 'url'=>array('/guias/reportes'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Acerca de', 'url'=>array('/site/about')),
 				//array('label'=>'Dashboard', 'url'=>array('/site/index')),
 				//array('label'=>'Graphs', 'url'=>array('/site/page', 'view'=>'graphs'),'itemOptions'=>array('class'=>'icon_chart')),
 				//array('label'=>'Form', 'url'=>array('/site/page', 'view'=>'forms')),
