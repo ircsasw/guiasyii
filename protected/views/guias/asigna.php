@@ -12,7 +12,7 @@ $this->menu=array(
 
 <h1>Asignar Guias</h1>
 
-<?php echo $this->renderPartial('_formasigna'); ?>
+<?php echo $this->renderPartial('_formasigna', array('modelasigna'=>$modelasigna)); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'guias-grid',

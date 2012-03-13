@@ -112,37 +112,54 @@ class GuiasController extends Controller
 	}
 	public function actionAsigna()
 	{
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$modelasigna = new AsignaForm();
+		
+		$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+		$modelasigna->asignado = Yii::app()->user->id;
+		
 		$modeladmin = new Guias('search');
 		$modeladmin->unsetAttributes();  // clear any default values
 		if(isset($_GET['Guias']))
 			$modeladmin->attributes=$_GET['Guias'];
-
-		if(isset($_POST['folio_ini']))
+		
+		if(isset($_POST['AsignaForm']))
 		{
-			$inicio = $_POST['folio_ini'];
-			$fin = $_POST['folio_fin'];
-			if ($inicio > $fin)
-				echo "Error!!!";
-			else 
+			$modelasigna->attributes=$_POST['AsignaForm'];
+			//$modelasigna->fecha_asig = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
+			
+			if($modelasigna->validate())
 			{
-				for ( $i = $inicio;$i<=$fin ; $i++)
+				$inicio   = $modelasigna->folio_ini;
+				$fin      = $modelasigna->folio_fin;
+				$serie    = $modelasigna->serie;
+				$origen   = $modelasigna->id_origen;
+				$asigna   = $modelasigna->asignado;
+				$asignado = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
+				
+				for ( $i=$inicio; $i<=$fin ; $i++)
 				{
 					$model = new Guias;
-					$model->serie = $_POST['serie'];
-					$model->fecha_asig = $_POST['fecha_asig'];
-					$model->folio = $i;
-					$model->id_origen = $_POST['id_origen'];
-					$model->id_asigna = $_POST['id_asigna'];
+					
+					$model->serie      = $serie;
+					$model->fecha_asig = $asignado;
+					$model->folio      = $i;
+					$model->id_origen  = $origen;
+					$model->id_asigna  = $asigna;
+					
 					$model->save();
 				}
-				$this->render('asigna', array('model'=>$model, 'modeladmin'=>$modeladmin));
+				
+				$modelasigna->unsetAttributes();
+				$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+				$modelasigna->asignado = Yii::app()->user->id;
+				
+				$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));
 			}
 		}
-		$this->render('asigna', array('model'=>$model, 'modeladmin'=>$modeladmin));
+		else 
+			$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));	
+	}
 	
-			}
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

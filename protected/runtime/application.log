@@ -3535,3 +3535,57 @@ Stack trace:
 REQUEST_URI=/guiasyii/index.php?r=site/about
 HTTP_REFERER=http://localhost/guiasyii/index.php?r=site/index
 ---
+2012/03/12 22:51:06 [error] [exception.CException] exception 'CException' with message 'Propiedad "AsignaForm"."fecha_asig" no se encuentra definida.' in C:\xampp\htdocs\guiasyii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(2044): CComponent->__get('fecha_asig')
+#1 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(AsignaForm), 'fecha_asig')
+#2 C:\xampp\htdocs\guiasyii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(AsignaForm), 'fecha_asig', Array)
+#3 C:\xampp\htdocs\guiasyii\protected\views\guias\_formasigna.php(23): CHtml::activeTextField(Object(AsignaForm), 'fecha_asig', Array)
+#4 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\guiasyii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\guiasyii\protected\views\guias\asigna.php(15): CController->renderPartial('_formasigna', Array)
+#8 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\guiasyii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#10 C:\xampp\htdocs\guiasyii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\guiasyii\framework\web\CController.php(783): CController->renderPartial('asigna', Array, true)
+#12 C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php(138): CController->render('asigna', Array)
+#13 C:\xampp\htdocs\guiasyii\framework\web\actions\CInlineAction.php(50): GuiasController->actionAsigna()
+#14 C:\xampp\htdocs\guiasyii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\xampp\htdocs\guiasyii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\guiasyii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\guiasyii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\guiasyii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\guiasyii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('asigna')
+#23 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('guias/asigna')
+#24 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/guiasyii/index.php?r=guias/asigna
+---
+2012/03/13 02:37:04 [warning] [application] Failed to set unsafe attribute "fecha_asig" of "AsignaForm".
+in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (126)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/03/13 02:38:13 [warning] [application] Failed to set unsafe attribute "fecha_asig" of "AsignaForm".
+in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (126)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/03/13 02:45:12 [warning] [application] Failed to set unsafe attribute "fecha_asig" of "AsignaForm".
+in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (127)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/03/13 02:46:28 [warning] [application] Failed to set unsafe attribute "fecha_asig" of "AsignaForm".
+in C:\xampp\htdocs\guiasyii\protected\controllers\GuiasController.php (127)
+in C:\xampp\htdocs\guiasyii\index.php (13)
+2012/03/13 03:38:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "bajas" solicitada.' in C:\xampp\htdocs\guiasyii\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\guiasyii\framework\web\CController.php(271): CController->missingAction('bajas')
+#1 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(276): CController->run('bajas')
+#2 C:\xampp\htdocs\guiasyii\framework\web\CWebApplication.php(135): CWebApplication->runController('guias/bajas')
+#3 C:\xampp\htdocs\guiasyii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\guiasyii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/guiasyii/index.php?r=guias/bajas
+HTTP_REFERER=http://localhost/guiasyii/index.php?r=guias/asigna
+---
