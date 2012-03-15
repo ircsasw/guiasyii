@@ -297,11 +297,12 @@ class GuiasController extends Controller
 	public function actionAsigxo()
 	{
 		$model = new ReportesForm();
-		$model->unsetAttributes();
+		//$model->unsetAttributes();
 		
 		if (isset($_POST['ReportesForm']))
 		{
 			$model->attributes=$_POST['ReportesForm'];
+			
 			
 			if($model->validate())
 			{
