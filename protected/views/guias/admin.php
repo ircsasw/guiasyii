@@ -1,14 +1,14 @@
 <?php
 
 $this->breadcrumbs=array(
-	'Guiases'=>array('index'),
-	'Manage',
+	'Guias'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List Guias', 'url'=>array('index')),
-	array('label'=>'Create Guias', 'url'=>array('asigna')),
-	array('label'=>'Create Report', 'url'=>array('crearepo')),
+	array('label'=>'Lista de Guias', 'url'=>array('index')),
+	array('label'=>'Crear Guia', 'url'=>array('asigna')),
+	array('label'=>'Catálogo', 'url'=>array('crearepo')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -25,17 +25,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Guiases</h1>
+<h1>Administrar Guias</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-
-
-
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 
 <?php $this->renderPartial('_search',array(
@@ -54,20 +46,31 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'selectableRows'=> 10,
 		'id'=>'chk',
 		),
-		
-		'id',
+		//'id',
 		'serie',
 		'folio',
 		'fecha_asig',
-		'id_origen',
-		'id_asigna',
-		/*
+		array(
+			'name'=>'id_origen',
+			'value'=>'$data->idOrigen->origen',
+		),
+		array(
+			'name'=>'id_asigna',
+			'value'=>'$data->idUsuarioA->nombre'
+		),
 		'fecha_baja',
-		'id_destino',
-		'id_baja',
-		*/
+		array(
+			'name'=>'id_destino',
+			'value'=>'$data->idDestino->destino',
+		),
+		array(
+			'name'=>'id_baja',
+			'value'=>'$data->idUsuarioB->usuario',
+		),
+		/*
 		array(
 			'class'=>'CButtonColumn',
 		),
+		*/
 	),
 )); ?>

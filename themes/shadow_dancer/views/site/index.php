@@ -35,8 +35,8 @@
     </div>
     
     <div class="dashIcon span-3">
-        <a href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/big_icons/icon-chart.png" alt="Reportes" /></a>
-        <div class="dashIconText"><a href="#">Reportes</a></div>
+        <a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=site/reportes'; ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/big_icons/icon-chart.png" alt="Reportes" /></a>
+        <div class="dashIconText"><a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=site/reportes'; ?>">Reportes</a></div>
     </div>
     
     <div class="dashIcon span-3">

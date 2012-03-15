@@ -17,7 +17,6 @@ class AsignaForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			// username and password are required
 			array('serie, folio_ini, folio_fin, asignado, id_origen', 'required'),
 			array('folio_ini, folio_fin, id_origen', 'numerical', 'integerOnly'=>true),
 			//array('fecha_asig', 'date', 'format'=>'yyyy-M-d'),
@@ -29,7 +28,7 @@ class AsignaForm extends CFormModel
 	public function mayorque($attribute,$params)
 	{
 		if ($this->folio_fin < $this->folio_ini)
-			$this->addError('folio_fin','El folio final debe ser mayor al inicial.');
+			$this->addError('folio_fin','El folio final debe ser mayor o igual al inicial.');
 	}
 	
 	public function attributeLabels()
