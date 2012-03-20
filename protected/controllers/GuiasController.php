@@ -247,7 +247,6 @@ class GuiasController extends Controller
 		{
 			$model->attributes=$_POST['ReportesForm'];
 			//$model->fecha_ini = date('Y-m-d', CDateTimeParser::parse($model->fecha_ini, Yii::app()->locale->getDateFormat('medium')));
-			
 			if($model->validate())
 			{
 				$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
@@ -302,14 +301,13 @@ class GuiasController extends Controller
 		if (isset($_POST['ReportesForm']))
 		{
 			$model->attributes=$_POST['ReportesForm'];
-			
+			$model->scenario ='asigxo';
 			
 			if($model->validate())
-			{
+			{	
 				$origen = $model->id_origen;
-				
 				$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
-				
+
 				$guias = Guias::model()->findAll('id_origen=:cOrigen',array(':cOrigen'=> $origen));
 				
 				$html = $this->renderPartial('_asigxo', array('model'=>$guias), true, true);

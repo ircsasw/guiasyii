@@ -11,7 +11,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Asignaciones de guias del periodo</h1>
+<h1>Asignaciones de guias del origen</h1>
 
 <div class="wide form">
 
