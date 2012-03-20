@@ -32,7 +32,7 @@ class GuiasController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu'),
+				'actions'=>array('create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -289,19 +289,14 @@ class GuiasController extends Controller
 		));
 	}
 	
-	/**
-	 * 
-	 * Enter description here ...
-	 */
 	public function actionAsigxo()
 	{
-		$model = new ReportesForm();
+		$model = new ReportesFormOrigen();
 		//$model->unsetAttributes();
 		
-		if (isset($_POST['ReportesForm']))
+		if (isset($_POST['ReportesFormOrigen']))
 		{
-			$model->attributes=$_POST['ReportesForm'];
-			$model->scenario ='asigxo';
+			$model->attributes=$_POST['ReportesFormOrigen'];
 			
 			if($model->validate())
 			{	
@@ -345,12 +340,11 @@ class GuiasController extends Controller
 	
 	public function actionBajxd ()
 	{
-		$date = 3; //SIRVE PARA UN ORIGEN EN ESPECIFICO
 		
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
-		$model=Guias::model()->findAll('id_destino=:cDestino',array(':cDestino'=> $date));
+		$Guias=Guias::model()->findAll('id_baja != :cBaja',array(':cBaja' => 0 ));
 		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
-		$html = $this->renderPartial('_bajxd', array('model'=>$model), true, true);
+		$html = $this->renderPartial('_bajxd', array('model'=>$Guias), true, true);
 		//$var=date('d-M-Y');
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor("MMS");
@@ -374,17 +368,68 @@ class GuiasController extends Controller
 		$pdf->lastPage();
 		$pdf->Output("example_002.pdf", "I");
 		//return $pdf;
-		
 	}
+
 	public function actionBajxf ()
 	{
-		$date = "2012-03-14";
+		$model = new ReportesForm();
 		
+		$model->fecha_ini = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+		$model->fecha_fin = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+		
+		if (isset($_POST['ReportesForm']))
+		{
+			$model->attributes=$_POST['ReportesForm'];
+			//$model->fecha_ini = date('Y-m-d', CDateTimeParser::parse($model->fecha_ini, Yii::app()->locale->getDateFormat('medium')));
+			if($model->validate())
+			{
+			
+				$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
+				$finicial = date('Y-m-d', CDateTimeParser::parse($model->fecha_ini, Yii::app()->locale->getDateFormat('medium')));
+				$ffinal   = date('Y-m-d', CDateTimeParser::parse($model->fecha_fin, Yii::app()->locale->getDateFormat('medium')));
+				
+				$guias = Guias::model()->findAll('fecha_baja >= :fInicial AND fecha_baja <= :fFinal', array(':fInicial'=>$finicial, ':fFinal'=>$ffinal));	
+				
+				$html = $this->renderPartial('_bajxf', array('model'=>$guias), true, true);
+				//$var=date('d-M-Y');
+				$pdf->SetCreator(PDF_CREATOR);
+				$pdf->SetAuthor("MMS");
+				$pdf->SetTitle("Project's report");
+				$pdf->SetSubject("TCPDF Tutorial");
+				$pdf->SetKeywords("TCPDF, PDF, example, test, guide");
+				//$pdf->SetHeaderData("mms.png", '30', "Project Data", "Date: $var ");
+				//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
+				$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+				$pdf->SetHeaderMargin(5);
+				$pdf->SetFooterMargin(10);
+				$pdf->SetTopMargin(25);
+				//$pdf->setPrintHeader(true);
+				//$pdf->setPrintFooter(True);
+				//$pdf->AliasNbPages();
+				$pdf->SetAutoPageBreak(TRUE,'16');
+				//$pdf->Header();
+				$pdf->AddPage();
+				//$pdf->SetFont("times", "BI", 10);
+				$pdf->writeHTML($html, true, false, false, false, '');
+				$pdf->lastPage();
+				$pdf->Output("example_002.pdf", "I");
+				//return $pdf;
+			}
+		}
+				
+		$this->render('bajxf',array(
+			'model'=>$model,
+		));
+		
+	}
+	
+	public function actionGuiasd()
+	{
+
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
-		$model=Guias::model()->findAll('fecha_baja=:cFecha',array(':cFecha'=> $date));
-		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
-		$html = $this->renderPartial('_bajxf', array('model'=>$model), true, true);
-		//$var=date('d-M-Y');
+		$guias = Guias::model()->findAll('id_baja=:cBaja',array(':cBaja'=> 0));
+		
+		$html = $this->renderPartial('_asigxo', array('model'=>$guias), true, true);
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor("MMS");
 		$pdf->SetTitle("Project's report");
@@ -407,41 +452,107 @@ class GuiasController extends Controller
 		$pdf->lastPage();
 		$pdf->Output("example_002.pdf", "I");
 		//return $pdf;
-		
 	}
+	
 	public function actionBajxu ()
 	{
-		$date = 1;
+		$model = new ReportesFormUsuario();
+		//$model->unsetAttributes();
 		
-		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
-		$model=Guias::model()->findAll('id_baja=:cBaja',array(':cBaja'=> $date));
-		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
-		$html = $this->renderPartial('_bajxf', array('model'=>$model), true, true);
-		//$var=date('d-M-Y');
-		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("MMS");
-		$pdf->SetTitle("Project's report");
-		$pdf->SetSubject("TCPDF Tutorial");
-		$pdf->SetKeywords("TCPDF, PDF, example, test, guide");
-		//$pdf->SetHeaderData("mms.png", '30', "Project Data", "Date: $var ");
-		//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
-		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-		$pdf->SetHeaderMargin(5);
-		$pdf->SetFooterMargin(10);
-		$pdf->SetTopMargin(25);
-		//$pdf->setPrintHeader(true);
-		//$pdf->setPrintFooter(True);
-		//$pdf->AliasNbPages();
-		$pdf->SetAutoPageBreak(TRUE,'16');
-		//$pdf->Header();
-		$pdf->AddPage();
-		//$pdf->SetFont("times", "BI", 10);
-		$pdf->writeHTML($html, true, false, false, false, '');
-		$pdf->lastPage();
-		$pdf->Output("example_002.pdf", "I");
-		//return $pdf;
+		if (isset($_POST['ReportesFormUsuario']))
+		{
+			$model->attributes=$_POST['ReportesFormUsuario'];
+			
+			if($model->validate())
+			{	
+			
+				$baja = $model->id_baja;
+				$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
+				$guias=Guias::model()->findAll('id_baja=:cBaja',array(':cBaja'=> $baja));
+				//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
+				$html = $this->renderPartial('_bajxu', array('model'=>$guias), true, true);
+				//$var=date('d-M-Y');
+				$pdf->SetCreator(PDF_CREATOR);
+				$pdf->SetAuthor("MMS");
+				$pdf->SetTitle("Project's report");
+				$pdf->SetSubject("TCPDF Tutorial");
+				$pdf->SetKeywords("TCPDF, PDF, example, test, guide");
+				//$pdf->SetHeaderData("mms.png", '30', "Project Data", "Date: $var ");
+				//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
+				$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+				$pdf->SetHeaderMargin(5);
+				$pdf->SetFooterMargin(10);
+				$pdf->SetTopMargin(25);
+				//$pdf->setPrintHeader(true);
+				//$pdf->setPrintFooter(True);
+				//$pdf->AliasNbPages();
+				$pdf->SetAutoPageBreak(TRUE,'16');
+				//$pdf->Header();
+				$pdf->AddPage();
+				//$pdf->SetFont("times", "BI", 10);
+				$pdf->writeHTML($html, true, false, false, false, '');
+				$pdf->lastPage();
+				$pdf->Output("example_002.pdf", "I");
+				//return $pdf;
+			}
+			else 
+				$this->render('bajxu',array('model'=>$model, ));
+		}
+		else 
+			$this->render('bajxu',array('model'=>$model, ));
+			
+	}
+	
+	public function actionGuiasdxo()
+	{
+		$model = new ReportesFormOrigen();
+		//$model->unsetAttributes();
+		
+		if (isset($_POST['ReportesFormOrigen']))
+		{
+			$model->attributes=$_POST['ReportesFormOrigen'];
+			//$model->scenario ='asigxo';
+			
+			if($model->validate())
+			{	
+				$origen = $model->id_origen;
+				$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
+				
+				$guias = Guias::model()->findAll('id_origen=:cOrigen AND id_baja = :cBaja',array(':cOrigen'=> $origen,':cBaja'=>0));
+				//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
+				$html = $this->renderPartial('_asigxo', array('model'=>$guias), true, true);
+				//$var=date('d-M-Y');
+				$pdf->SetCreator(PDF_CREATOR);
+				$pdf->SetAuthor("MMS");
+				$pdf->SetTitle("Project's report");
+				$pdf->SetSubject("TCPDF Tutorial");
+				$pdf->SetKeywords("TCPDF, PDF, example, test, guide");
+				//$pdf->SetHeaderData("mms.png", '30', "Project Data", "Date: $var ");
+				//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
+				$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+				$pdf->SetHeaderMargin(5);
+				$pdf->SetFooterMargin(10);
+				$pdf->SetTopMargin(25);
+				//$pdf->setPrintHeader(true);
+				//$pdf->setPrintFooter(True);
+				//$pdf->AliasNbPages();
+				$pdf->SetAutoPageBreak(TRUE,'16');
+				//$pdf->Header();
+				$pdf->AddPage();
+				//$pdf->SetFont("times", "BI", 10);
+				$pdf->writeHTML($html, true, false, false, false, '');
+				$pdf->lastPage();
+				$pdf->Output("example_002.pdf", "I");
+				//return $pdf;
+			}
+			else 
+				$this->render('guiasdxo',array('model'=>$model, ));
+		}
+		else 
+			$this->render('guiasdxo',array('model'=>$model, ));
 		
 	}
+	
 	public function actionCrearepo()
 	{
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');

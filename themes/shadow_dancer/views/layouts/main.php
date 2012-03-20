@@ -56,6 +56,13 @@
 						'items'=>array(
 							array('label'=>'Asignaciones del periodo', 'url'=>array('/guias/asigxf')),
 							array('label'=>'Asignaciones del origen', 'url'=>array('/guias/asigxo')),
+							//array('label'=>'Bajas del Destino', 'url'=>array('/guias/bajxd')),
+							array('label'=>'Bajas del periodo', 'url'=>array('/guias/bajxf')),
+							array('label'=>'Bajas del destino', 'url'=>array('/guias/bajxd')),							
+							array('label'=>'Bajas del usuario', 'url'=>array('/guias/bajxu')),
+							array('label'=>'Guias disponibles', 'url'=>array('/guias/guiasd')),
+							array('label'=>'Guias disponibles del origen', 'url'=>array('/guias/guiasdxo')),
+							
 							//array('label'=>'Interface Elements', 'url'=>array('/site/page', 'view'=>'interface')),
 							//array('label'=>'Error Pages', 'url'=>array('/site/page', 'view'=>'Demo 404 page')),
 							//array('label'=>'Calendar', 'url'=>array('/site/page', 'view'=>'calendar')),

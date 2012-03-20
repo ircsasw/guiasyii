@@ -10,12 +10,13 @@
 	</tr>	
 
 	<?php 
+	
 	foreach ($model as $value)
 	{
 		echo "<tr> <td>". $value->folio."</td>"; 
 		echo "<td>". $value->serie."</td>";
 		echo "<td>". $value->idUsuarioA->usuario."</td>";
-		echo "<td>". $value->id_origen."</td>";
+		echo "<td>". $value->idOrigen->origen."</td>";
 		echo "<td>". $value->fecha_asig."</td></tr>"; 
 	}
 	?>

@@ -9,13 +9,13 @@ class ReportesForm extends CFormModel
 {
 	public $fecha_ini;
 	public $fecha_fin;
-	public $id_origen;
+	//public $id_origen;
 	
 	public function rules()
 	{
 		return array(
 			array('fecha_ini,fecha_fin','required','on'=>'asigxf'),
-			array('id_origen', 'required', 'on'=>'asigxo'),
+			//array('id_origen', 'required', 'on'=>'asigxo'),
 			array('fecha_ini, fecha_fin', 'date', 'format'=>'d/M/yyyy'),
 			array('fecha_fin', 'mayorque', 'on'=>'asigxf'),
 		);
