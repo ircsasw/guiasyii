@@ -32,7 +32,7 @@ class GuiasController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd'),
+				'actions'=>array('create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd','bajas'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -135,7 +135,6 @@ class GuiasController extends Controller
 		else 
 			$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));	
 	}
-	
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -231,7 +230,41 @@ class GuiasController extends Controller
 			Yii::app()->end();
 		}
 	}
-	
+	public function actionBajas()
+	{
+		$model = new BajasForm();
+		//$model->unsetAttributes();
+		$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+		$model->id_baja= Yii::app()->user->id;
+				
+		if (isset($_POST['BajasForm']))
+		{
+			$model->attributes=$_POST['BajasForm'];
+			
+			if($model->validate())
+			{	
+				$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
+				// validar que hay resultado
+				if (count($guias))
+				{
+					// validar que no este dada de baja
+					$guias->id_destino = $model->id_destino;
+					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));;
+					$guias->id_baja = $model->id_baja; 
+					
+					$guias->save();
+					
+					$model->unsetAttributes();
+					$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+					$model->id_baja= Yii::app()->user->id;
+				}
+
+			}
+		}
+		
+		$this->render('bajas',array('model'=>$model, 'modeladmin'=>$modeladmin));
+		
+	}
 	/**
 	 * Reporte Asignados de la fecha
 	 * Reporte de guias asignadas en un periodo determinado
