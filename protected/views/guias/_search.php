@@ -26,13 +26,20 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_origen'); ?>
-		<?php echo $form->textField($model,'id_origen'); ?>
+		<?php echo CHtml::activeLabel($model, 'id_origen')?>
+		<?php 
+			$datos = CHtml::listData(Origenes::model()->findAll(),'id','origen');
+			echo CHtml::activeDropDownList($model, 'id_origen', $datos, array('prompt'=>'Seleccionar'));
+		?>
+
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_asigna'); ?>
-		<?php echo $form->textField($model,'id_asigna'); ?>
+		<?php echo CHtml::activeLabel($model, 'id_asigna')?>
+		<?php 
+			$datos = CHtml::listData(Usuarios::model()->findAll(),'id','usuario');
+			echo CHtml::activeDropDownList($model, 'id_asigna', $datos, array('prompt'=>'Seleccionar'));
+		?>
 	</div>
 
 	<div class="row">
@@ -41,13 +48,19 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_destino'); ?>
-		<?php echo $form->textField($model,'id_destino'); ?>
+		<?php echo CHtml::activeLabel($model, 'id_destino')?>
+		<?php 
+			$datos = CHtml::listData(Destinos::model()->findAll(),'id','destino');
+			echo CHtml::activeDropDownList($model, 'id_destino', $datos, array('prompt'=>'Seleccionar'));
+		?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_baja'); ?>
-		<?php echo $form->textField($model,'id_baja'); ?>
+		<?php echo CHtml::activeLabel($model, 'id_baja')?>
+		<?php 
+			$datos = CHtml::listData(Usuarios::model()->findAll(),'id','usuario');
+			echo CHtml::activeDropDownList($model, 'id_baja', $datos, array('prompt'=>'Seleccionar'));
+		?>
 	</div>
 
 	<div class="row buttons">

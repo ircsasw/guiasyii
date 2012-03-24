@@ -42,6 +42,7 @@ class Guias extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+		//	array('fecha_asig','fecha_baja','date','format'=>'d/M/yyyy'),
 			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
 			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('serie', 'length', 'max'=>10),
@@ -75,12 +76,12 @@ class Guias extends CActiveRecord
 			'id' => 'ID',
 			'serie' => 'Serie',
 			'folio' => 'Folio',
-			'fecha_asig' => 'Fecha Asigna',
+			'fecha_asig' => 'Fecha de Asignación',
 			'id_origen' => 'Origen',
-			'id_asigna' => 'Asigna',
-			'fecha_baja' => 'Fecha Baja',
+			'id_asigna' => 'Usuario que Asigna',
+			'fecha_baja' => 'Fecha de Baja',
 			'id_destino' => 'Destino',
-			'id_baja' => 'Baja',
+			'id_baja' => 'Usuario que Baja',
 		);
 	}
 

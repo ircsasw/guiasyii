@@ -233,7 +233,6 @@ class GuiasController extends Controller
 	public function actionBajas()
 	{
 		$model = new BajasForm();
-		//$model->unsetAttributes();
 		$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 		$model->id_baja= Yii::app()->user->id;
 				
@@ -245,20 +244,16 @@ class GuiasController extends Controller
 			{	
 				$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
 				// validar que hay resultado
-				if (count($guias))
+				if (count($guias) && $guias->id_baja ==0)
 				{
-					// validar que no este dada de baja
 					$guias->id_destino = $model->id_destino;
 					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));;
 					$guias->id_baja = $model->id_baja; 
-					
 					$guias->save();
-					
 					$model->unsetAttributes();
 					$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 					$model->id_baja= Yii::app()->user->id;
 				}
-
 			}
 		}
 		

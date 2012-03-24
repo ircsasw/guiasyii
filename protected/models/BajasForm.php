@@ -1,10 +1,5 @@
 <?php
 
-/**
- * ReportesForm class.
- * ReportesForm is the data structure for keeping
- * reportes form data. It is used by the 'asigxf', '' actions of 'GuiasControler'.
- */
 class BajasForm extends CFormModel
 {
 	public $fecha;

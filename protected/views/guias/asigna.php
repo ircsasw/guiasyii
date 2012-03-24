@@ -29,6 +29,7 @@ $this->menu=array(
 		'serie',
 		'folio',
 		'fecha_asig',
+
 		array(
 			'name'=>'id_origen',
 			'value'=>'$data->idOrigen->origen',
