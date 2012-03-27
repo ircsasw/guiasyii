@@ -28,8 +28,7 @@ $this->menu=array(
 		//'id',
 		'serie',
 		'folio',
-		'fecha_asig',
-
+		'fecha_asig',//=>date('d-m-y', CDateTimeParser::parse($modeladmin->fecha_asig, Yii::app()->locale->getDateFormat('medium'))),
 		array(
 			'name'=>'id_origen',
 			'value'=>'$data->idOrigen->origen',
@@ -38,6 +37,7 @@ $this->menu=array(
 			'name'=>'id_asigna',
 			'value'=>'$data->idUsuarioA->usuario',
 		),
+		
 		'fecha_baja',
 		array(
 			'name'=>'id_destino',

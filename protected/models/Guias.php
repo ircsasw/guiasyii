@@ -78,10 +78,10 @@ class Guias extends CActiveRecord
 			'folio' => 'Folio',
 			'fecha_asig' => 'Fecha de Asignación',
 			'id_origen' => 'Origen',
-			'id_asigna' => 'Usuario que Asigna',
+			'id_asigna' => 'Asignó',
 			'fecha_baja' => 'Fecha de Baja',
 			'id_destino' => 'Destino',
-			'id_baja' => 'Usuario que Baja',
+			'id_baja' => 'Dió baja',
 		);
 	}
 

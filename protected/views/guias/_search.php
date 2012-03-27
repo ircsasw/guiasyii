@@ -22,7 +22,28 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'fecha_asig'); ?>
-		<?php echo $form->textField($model,'fecha_asig'); ?>
+		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
+			array(
+				'model'=>'$model',
+				'name'=>'Guias[fecha_asig]',
+				'language'=>Yii::t('default', 'en'),
+				'options'=>array(
+					'showAnim'=>'fold', 
+					// 'focus', 'button', 'both'
+					//'showOn'=>'button',
+					//'buttonText'=>Yii::t('default','Selecciona una fecha'),
+					'dateFormat'=>'yy-mm-dd',
+					'showButtonPanel'=>true,
+					'changeYear'=>true,
+					'changeYear'=>true,
+				),
+				'htmlOptions'=>array(
+					//'size'=>10,
+					'style'=>'width:90px'
+					),
+				)		
+			);
+		?>
 	</div>
 
 	<div class="row">
@@ -44,9 +65,30 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'fecha_baja'); ?>
-		<?php echo $form->textField($model,'fecha_baja'); ?>
+		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
+				array(
+					'model'=>'$model',
+					'name'=>'Guias[fecha_baja]',
+					'language'=>Yii::t('default', 'en'),
+					'options'=>array(
+						'showAnim'=>'fold',
+						// 'focus', 'button', 'both'
+						//'showOn'=>'button',
+						//'buttonText'=>Yii::t('default','Selecciona una fecha'),
+						'dateFormat'=>'yy-mm-dd',
+						'showButtonPanel'=>true,
+						'changeYear'=>true,
+						'changeYear'=>true,
+					),
+					'htmlOptions'=>array(
+						//'size'=>10,
+						'style'=>'width:90px'
+					),
+				)		
+			);
+		?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo CHtml::activeLabel($model, 'id_destino')?>
 		<?php 

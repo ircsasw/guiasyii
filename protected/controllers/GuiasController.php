@@ -247,7 +247,7 @@ class GuiasController extends Controller
 				if (count($guias) && $guias->id_baja ==0)
 				{
 					$guias->id_destino = $model->id_destino;
-					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));;
+					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));
 					$guias->id_baja = $model->id_baja; 
 					$guias->save();
 					$model->unsetAttributes();
