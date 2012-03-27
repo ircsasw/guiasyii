@@ -16,7 +16,7 @@
  */
 class Guias extends CActiveRecord
 {
-
+	//public $Temp;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Guias the static model class
@@ -42,7 +42,8 @@ class Guias extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		//	array('fecha_asig','fecha_baja','date','format'=>'d/M/yyyy'),
+			//array('fecha_asig','fecha_baja','date','format'=>'dd-mm-yy'),
+			array ('Temp','safe','on'=>'search'),
 			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
 			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('serie', 'length', 'max'=>10),
@@ -100,10 +101,11 @@ class Guias extends CActiveRecord
 		$criteria->compare('serie',$this->serie,true);
 		$criteria->compare('folio',$this->folio);
 		$criteria->compare('fecha_asig',$this->fecha_asig,true);
+		//$criteria->compare('id_origen',$this->Temp);
 		$criteria->compare('id_origen',$this->id_origen);
 		$criteria->compare('id_asigna',$this->id_asigna);
 		$criteria->compare('fecha_baja',$this->fecha_baja,true);
-		$criteria->compare('id_destino',$this->id_destino);
+		$criteria->compare('id_destino',$this->id_destino,true);
 		$criteria->compare('id_baja',$this->id_baja);
 
 		return new CActiveDataProvider($this, array(

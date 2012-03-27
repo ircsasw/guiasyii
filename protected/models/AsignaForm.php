@@ -19,7 +19,7 @@ class AsignaForm extends CFormModel
 		return array(
 			array('serie, folio_ini, folio_fin, asignado, id_origen', 'required'),
 			array('folio_ini, folio_fin, id_origen', 'numerical', 'integerOnly'=>true),
-			//array('fecha_asig', 'date', 'format'=>'yyyy-M-d'),
+			//array('fecha_asig', 'date', 'format'=>'dd-mm-yy'),
 			array('serie', 'length', 'max'=>10),
 			array('folio_fin', 'mayorque'),
 		);
