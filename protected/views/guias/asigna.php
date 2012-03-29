@@ -28,7 +28,10 @@ $this->menu=array(
 		//'id',
 		'serie',
 		'folio',
-		'fecha_asig',
+		array(
+			'name'=>'fecha_asig',
+			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
+		),
 		array(
 			'name'=>'id_origen',
 			'value'=>'$data->idOrigen->origen',
@@ -37,8 +40,10 @@ $this->menu=array(
 			'name'=>'id_asigna',
 			'value'=>'$data->idUsuarioA->usuario',
 		),
-		
-		'fecha_baja',
+		array(
+			'name'=>'fecha_baja',
+			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
+		),
 		array(
 			'name'=>'id_destino',
 			'value'=>'$data->idDestino->destino',
