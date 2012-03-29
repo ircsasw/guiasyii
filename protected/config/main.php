@@ -10,7 +10,7 @@ return array(
 	'name'=>'Control de guias.',
 
 	'language'=>'es', 			// Este es el lenguaje en el que quer�s que Yii muestre sus mensajes
-	'sourceLanguage'=>'en', 	// Este es el lenguaje por defecto de los archivos
+	'sourceLanguage'=>'es', 	// Este es el lenguaje por defecto de los archivos
 
 	'theme'=>'shadow_dancer',
 
