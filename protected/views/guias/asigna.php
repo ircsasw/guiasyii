@@ -45,9 +45,9 @@ $this->menu=array(
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
 		array(
-			'name'=>'id_destino',
+			'name'=>'Temp',
 			'value'=>'$data->idDestino->destino',
-	
+			//'value'=>'$data->idDestinoXXX->id',
 		),
 		array(
 			'name'=>'id_baja',

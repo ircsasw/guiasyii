@@ -65,6 +65,7 @@ class Guias extends CActiveRecord
 			'idUsuarioB' => array(self::BELONGS_TO, 'Usuarios', 'id_baja'),
 			'idOrigen' => array(self::BELONGS_TO, 'Origenes', 'id_origen'),
 			'idDestino' => array(self::BELONGS_TO, 'Destinos', 'id_destino'),
+			//'idDestinoXXX' => array(self::BELONGS_TO, 'Destinos', 'id_destino'),
 		);
 	}
 
@@ -101,10 +102,10 @@ class Guias extends CActiveRecord
 		$criteria->compare('serie',$this->serie,true);
 		$criteria->compare('folio',$this->folio);
 		$criteria->compare('fecha_asig',$this->fecha_asig,true);
-		//$criteria->compare('id_origen',$this->Temp);
 		$criteria->compare('id_origen',$this->id_origen);
 		$criteria->compare('id_asigna',$this->id_asigna);
 		$criteria->compare('fecha_baja',$this->fecha_baja,true);
+		//$criteria->compare('idDestinoXXX.destino',$this->Temp);
 		$criteria->compare('id_destino',$this->id_destino,true);
 		$criteria->compare('id_baja',$this->id_baja);
 
