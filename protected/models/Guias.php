@@ -43,7 +43,7 @@ class Guias extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//array('fecha_asig','fecha_baja','date','format'=>'dd-mm-yy'),
-			array ('Temp','safe','on'=>'search'),
+			//array ('Temp','safe','on'=>'search'),
 			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
 			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('serie', 'length', 'max'=>10),
