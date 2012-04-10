@@ -71,31 +71,9 @@ class GuiasController extends Controller
 		{
 			$model->attributes=$_POST['Guias'];
 			if($model->save())
-			{
-				$this->redirect(array('view','id'=>$model->id));
-				if (Yii::app()->request->isAjaxRequest)
-                {
-                    echo CJSON::encode(array(
-                        'status'=>'success', 
-                        'div'=>"Se agrego empleado con exito."
-                        ));
-                    exit;               
-                }
-                else
-                    $this->redirect(array('view','id'=>$model->id));
-				
-			}
-				
+				$this->redirect(array('view','id'=>$model->id));			
 		}
 		
-		 if (Yii::app()->request->isAjaxRequest)
-        {
-            echo CJSON::encode(array(
-                'status'=>'failure', 
-                'div'=>$this->renderPartial('_form', array('model'=>$model), true)));
-            exit;               
-        }
-        else
         	$this->render('create',array('model'=>$model,));
 	}
 	
