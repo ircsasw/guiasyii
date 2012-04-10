@@ -48,7 +48,7 @@ $this->menu=array(
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Aceptar'); ?>
+		<?php echo CHtml::submitButton('Aceptar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php echo CHtml::endForm(); ?>

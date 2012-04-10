@@ -35,7 +35,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Asignar'); ?>
+		<?php echo CHtml::submitButton('Asignar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php echo CHtml::endForm(); ?>

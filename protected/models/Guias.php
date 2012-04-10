@@ -103,7 +103,7 @@ class Guias extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 		$criteria->with = array( 'idDestino','idUsuarioB','idUsuarioA','idOrigen' );
-		
+
 		$criteria->compare('id',$this->id);
 		$criteria->compare('serie',$this->serie,true);
 		$criteria->compare('folio',$this->folio);

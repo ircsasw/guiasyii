@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Lista de Guias', 'url'=>array('index')),
 	array('label'=>'Crear Guia', 'url'=>array('asigna')),
-	array('label'=>'Catálogo', 'url'=>array('crearepo')),
+	//array('label'=>'Catálogo', 'url'=>array('crearepo')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

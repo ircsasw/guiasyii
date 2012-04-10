@@ -28,10 +28,11 @@ $this->menu=array(
 		//'id',
 		'serie',
 		'folio',
-		array(
+		'fecha_asig',
+		/*array(
 			'name'=>'fecha_asig',
-			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
-		),
+			'value'=>Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse('fecha_asig', 'dd-MM-yyyy'),'medium',null)
+		),*/
 		array(
 			'name'=>'origen_search',
 			'value'=>'$data->idOrigen->origen',
@@ -40,10 +41,12 @@ $this->menu=array(
 			'name'=>'asigna_search',
 			'value'=>'$data->idUsuarioA->usuario',
 		),
+		'fecha_baja',
+		/*
 		array(
 			'name'=>'fecha_baja',
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
-		),
+		),*/
 		array(
 			'name'=>'destino_search',
 			'value'=>'$data->idDestino->destino',
@@ -58,4 +61,5 @@ $this->menu=array(
 		),
 		*/
 	),
-)); ?>
+));
+ ?>
