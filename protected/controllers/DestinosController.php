@@ -112,7 +112,10 @@ class DestinosController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			//Falta un mensaje emergente
+			$destinos = Guias::model()->find('id_destino=:cIDDestino',array(':cIDDestino'=>$id));
+			if (!(count($destinos)))
+				$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
