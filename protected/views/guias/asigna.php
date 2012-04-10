@@ -33,11 +33,11 @@ $this->menu=array(
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
 		array(
-			'name'=>'id_origen',
+			'name'=>'origen_search',
 			'value'=>'$data->idOrigen->origen',
 		),
 		array(
-			'name'=>'id_asigna',
+			'name'=>'asigna_search',
 			'value'=>'$data->idUsuarioA->usuario',
 		),
 		array(
@@ -45,11 +45,11 @@ $this->menu=array(
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
 		array(
-			'name'=>'id_destino',
+			'name'=>'destino_search',
 			'value'=>'$data->idDestino->destino',
 		),
 		array(
-			'name'=>'id_baja',
+			'name'=>'baja_search',
 			'value'=>'$data->idUsuarioB->usuario',
 		),
 		/*
