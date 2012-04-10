@@ -119,6 +119,27 @@ class Guias extends CActiveRecord
 			'pagination'=>array(
 				'pageSize'=>25,
 			),
+			'sort'=>array(
+		        'attributes'=>array(
+		            'origen_search'=>array(
+		                'asc'=>'idOrigen.origen',
+		                'desc'=>'idOrigen.origen DESC',
+		            ),
+		         	'asigna_search'=>array(
+		                'asc'=>'idUsuarioA.usuario',
+		                'desc'=>'idUsuarioA.usuario DESC',
+		            ),
+		           	'destino_search'=>array(
+		                'asc'=>'idDestino.destino',
+		                'desc'=>'idDestino.destino DESC',
+		            ),
+		         	'baja_search'=>array(
+		                'asc'=>'idUsuarioB.usuario',
+		                'desc'=>'idUsuarioB.usuario DESC',
+		            ),
+            		'*',
+        		),
+    		),
 		));
 	}
 }
