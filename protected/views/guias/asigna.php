@@ -44,11 +44,11 @@ $this->menu=array(
 			'name'=>'fecha_baja',
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
-		array(
+		/*array(
 			'name'=>'Temp',
 			'value'=>'$data->idDestino->destino',
 			//'value'=>'$data->idDestinoXXX->id',
-		),
+		),*/
 		array(
 			'name'=>'id_baja',
 			'value'=>'$data->idUsuarioB->usuario',
