@@ -33,24 +33,23 @@ $this->menu=array(
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
 		array(
-			'name'=>'id_origen',
+			'name'=>'origen_search',
 			'value'=>'$data->idOrigen->origen',
 		),
 		array(
-			'name'=>'id_asigna',
+			'name'=>'asigna_search',
 			'value'=>'$data->idUsuarioA->usuario',
 		),
 		array(
 			'name'=>'fecha_baja',
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),
-		/*array(
-			'name'=>'Temp',
-			'value'=>'$data->idDestino->destino',
-			//'value'=>'$data->idDestinoXXX->id',
-		),*/
 		array(
-			'name'=>'id_baja',
+			'name'=>'destino_search',
+			'value'=>'$data->idDestino->destino',
+		),
+		array(
+			'name'=>'baja_search',
 			'value'=>'$data->idUsuarioB->usuario',
 		),
 		/*

@@ -16,7 +16,10 @@
  */
 class Guias extends CActiveRecord
 {
-	//public $Temp;
+	public $asigna_search;
+	public $baja_search;
+	public $origen_search;
+	public $destino_search;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Guias the static model class
@@ -43,13 +46,12 @@ class Guias extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//array('fecha_asig','fecha_baja','date','format'=>'dd-mm-yy'),
-			array ('Temp','safe','on'=>'search'),
 			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
 			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('serie', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, serie, folio, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
+			array('destino_search,origen_search,baja_search,asigna_search,id, serie, folio, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +67,6 @@ class Guias extends CActiveRecord
 			'idUsuarioB' => array(self::BELONGS_TO, 'Usuarios', 'id_baja'),
 			'idOrigen' => array(self::BELONGS_TO, 'Origenes', 'id_origen'),
 			'idDestino' => array(self::BELONGS_TO, 'Destinos', 'id_destino'),
-			//'idDestinoXXX' => array(self::BELONGS_TO, 'Destinos', 'id_destino'),
 		);
 	}
 
@@ -80,10 +81,14 @@ class Guias extends CActiveRecord
 			'folio' => 'Folio',
 			'fecha_asig' => 'Fecha de Asignación',
 			'id_origen' => 'Origen',
+			'origen_search' =>'Origen',
 			'id_asigna' => 'Asignó',
+			'asigna_search'=>'Asignó',
 			'fecha_baja' => 'Fecha de Baja',
 			'id_destino' => 'Destino',
+			'destino_search' =>'Destino',
 			'id_baja' => 'Dió baja',
+			'baja_search'=>'Dió baja',
 		);
 	}
 
@@ -97,23 +102,44 @@ class Guias extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array( 'idDestino','idUsuarioB','idUsuarioA','idOrigen' );
+		
 		$criteria->compare('id',$this->id);
 		$criteria->compare('serie',$this->serie,true);
 		$criteria->compare('folio',$this->folio);
 		$criteria->compare('fecha_asig',$this->fecha_asig,true);
-		$criteria->compare('id_origen',$this->id_origen);
-		$criteria->compare('id_asigna',$this->id_asigna);
+		$criteria->compare('idOrigen.origen',$this->origen_search,true);
+		$criteria->compare('idUsuarioA.usuario',$this->asigna_search,true);
 		$criteria->compare('fecha_baja',$this->fecha_baja,true);
-		//$criteria->compare('idDestinoXXX.destino',$this->Temp);
-		$criteria->compare('id_destino',$this->id_destino,true);
-		$criteria->compare('id_baja',$this->id_baja);
+		$criteria->compare('idDestino.destino',$this->destino_search,true);
+		$criteria->compare('idUsuarioB.usuario',$this->baja_search,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
 				'pageSize'=>25,
 			),
+			'sort'=>array(
+		        'attributes'=>array(
+		            'origen_search'=>array(
+		                'asc'=>'idOrigen.origen',
+		                'desc'=>'idOrigen.origen DESC',
+		            ),
+		         	'asigna_search'=>array(
+		                'asc'=>'idUsuarioA.usuario',
+		                'desc'=>'idUsuarioA.usuario DESC',
+		            ),
+		           	'destino_search'=>array(
+		                'asc'=>'idDestino.destino',
+		                'desc'=>'idDestino.destino DESC',
+		            ),
+		         	'baja_search'=>array(
+		                'asc'=>'idUsuarioB.usuario',
+		                'desc'=>'idUsuarioB.usuario DESC',
+		            ),
+            		'*',
+        		),
+    		),
 		));
 	}
 }
