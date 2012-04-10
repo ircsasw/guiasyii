@@ -102,11 +102,8 @@ class Guias extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-		$criteria->with = array( 'idUsuarioA' );
-		$criteria->with = array( 'idUsuarioB' );
-		$criteria->with = array( 'idOrigen' );
-		$criteria->with = array( 'idDestino' );
-
+		$criteria->with = array( 'idDestino','idUsuarioB','idUsuarioA','idOrigen' );
+		
 		$criteria->compare('id',$this->id);
 		$criteria->compare('serie',$this->serie,true);
 		$criteria->compare('folio',$this->folio);
@@ -114,7 +111,7 @@ class Guias extends CActiveRecord
 		$criteria->compare('idOrigen.origen',$this->origen_search,true);
 		$criteria->compare('idUsuarioA.usuario',$this->asigna_search,true);
 		$criteria->compare('fecha_baja',$this->fecha_baja,true);
-		$criteria->compare('idDestino',$this->destino_search,true);
+		$criteria->compare('idDestino.destino',$this->destino_search,true);
 		$criteria->compare('idUsuarioB.usuario',$this->baja_search,true);
 
 		return new CActiveDataProvider($this, array(
