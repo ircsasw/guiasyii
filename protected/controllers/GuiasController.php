@@ -71,12 +71,32 @@ class GuiasController extends Controller
 		{
 			$model->attributes=$_POST['Guias'];
 			if($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->id));
+				if (Yii::app()->request->isAjaxRequest)
+                {
+                    echo CJSON::encode(array(
+                        'status'=>'success', 
+                        'div'=>"Se agrego empleado con exito."
+                        ));
+                    exit;               
+                }
+                else
+                    $this->redirect(array('view','id'=>$model->id));
+				
+			}
+				
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		
+		 if (Yii::app()->request->isAjaxRequest)
+        {
+            echo CJSON::encode(array(
+                'status'=>'failure', 
+                'div'=>$this->renderPartial('_form', array('model'=>$model), true)));
+            exit;               
+        }
+        else
+        	$this->render('create',array('model'=>$model,));
 	}
 	
 	/**
@@ -254,6 +274,23 @@ class GuiasController extends Controller
 					$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 					$model->id_baja= Yii::app()->user->id;
 				}
+				else 
+				{
+					$this->beginWidget('zii.widgets.jui.CJuiDialog', array( 
+					    'options'=>array(
+					        'title'=>'ERROR',
+					        'autoOpen'=>true,
+					        'modal'=>true,
+					        'width'=>300,
+					        'height'=>100,
+					    ),
+					    ));
+					    echo 'La guia no existe';
+					$this->endWidget();
+					    
+					    
+				}
+					
 			}
 		}
 		
