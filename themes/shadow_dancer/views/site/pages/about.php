@@ -9,6 +9,16 @@ $this->breadcrumbs=array(
 <br/>
 
 <p>
+	Arturo Ramos - www.ircsasoftware.com.mx</br>
+	Luis E. Pool</br>
+	David Mendoza</br>
+</p>
+
+<p>
+	Basado en:
+</p>
+
+<p>
 &copy; <?php echo date('Y'); ?> Ivonne Collection
 <br/>
 Desarrollado por <a href='http://www.ircsasoftware.com.mx'>IRCSA Software</a>
