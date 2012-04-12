@@ -108,22 +108,44 @@ class GuiasController extends Controller
 				$asigna   = $modelasigna->asignado;
 				$asignado = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
 				
-				for ( $i=$inicio; $i<=$fin ; $i++)
+				$asignadas = Guias::model()->find('folio>= :FolioIni AND folio <= :FolioFin AND serie = :cSerie', array(':FolioIni'=>$inicio, ':FolioFin'=>$fin,':cSerie'=>$serie));
+				if (!count($asignadas))
 				{
-					$model = new Guias;
+					for ( $i=$inicio; $i<=$fin ; $i++)
+					{
+						$model = new Guias;
+						
+						$model->serie      = $serie;
+						$model->fecha_asig = $asignado;
+						$model->folio      = $i;
+						$model->id_origen  = $origen;
+						$model->id_asigna  = $asigna;
+						
+						$model->save();
+					}
 					
-					$model->serie      = $serie;
-					$model->fecha_asig = $asignado;
-					$model->folio      = $i;
-					$model->id_origen  = $origen;
-					$model->id_asigna  = $asigna;
-					
-					$model->save();
+					$modelasigna->unsetAttributes();
+					$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+					$modelasigna->asignado = Yii::app()->user->id;
 				}
 				
-				$modelasigna->unsetAttributes();
-				$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
-				$modelasigna->asignado = Yii::app()->user->id;
+				else 
+				{
+					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+					    'id'=>'mydialog',
+					    // additional javascript options for the dialog plugin
+					    'options'=>array(
+					        'title'=>'Control guias: Error',
+					        'autoOpen'=>true,
+							'modal'=>true,
+							'width'=>250,
+							'height'=>100,
+						)
+					));
+					echo 'Rango de guias no disponible';
+					
+					$this->endWidget('zii.widgets.jui.CJuiDialog');
+				}
 				
 				$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));
 			}
