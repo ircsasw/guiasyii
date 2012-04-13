@@ -15,7 +15,9 @@ $this->breadcrumbs=array(
 </p>
 
 <p>
-	Basado en:
+	Basado en:</br>
+	
+	Shadow Dancer - Yii Framework Theme
 </p>
 
 <p>
