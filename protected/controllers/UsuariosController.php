@@ -118,6 +118,21 @@ class UsuariosController extends Controller
 			if ($id != 1)
 				$this->loadModel($id)->delete();
 			else
+			{
+				$this->beginWidget('zii.widgets.jui.CJuiDialo', array( 
+				    'options'=>array(
+				        'title'=>'ERROR',
+				        'autoOpen'=>true,
+				        'modal'=>true,
+				        'width'=>300,
+				        'height'=>100,
+				    ),
+				    ));
+				    echo 'La guia no existe';
+				$this->endWidget();
+					    
+					    
+			}
 
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
