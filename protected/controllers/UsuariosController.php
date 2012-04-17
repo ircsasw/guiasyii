@@ -119,7 +119,7 @@ class UsuariosController extends Controller
 				$this->loadModel($id)->delete();
 			else
 			{
-				$this->beginWidget('zii.widgets.jui.CJuiDialo', array( 
+				$this->beginWidget('zii.widgets.jui.CJuiDialog', array( 
 				    'options'=>array(
 				        'title'=>'ERROR',
 				        'autoOpen'=>true,
