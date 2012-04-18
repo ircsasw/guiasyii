@@ -48,7 +48,7 @@ $('.search-form form').submit(function(){
 		'nombre',
 			array(
 				'class'=>'CButtonColumn',
-				'template' => '{view} {update}',
+				'template' => '{view} {update} {delete}',
 				'afterDelete'=>'function(success){ if(success) alert("Delete completed successfuly"); }',
 			),
 	),
