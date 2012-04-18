@@ -3,10 +3,11 @@ $this->breadcrumbs=array(
 	'Guias'=>array('index'),
 	'Crear',
 );
-
+//'ejecutar'=>'{inactivarChkd();}', 'url'=>'#', 'titulo'=>Yii::t('default', 'Inactivate'), 'clase'=>''),
 $this->menu=array(
 	array('label'=>'Lista Guias', 'url'=>array('index')),
 	array('label'=>'Administrar Guias', 'url'=>array('admin')),
+	//array('label'=>'eliminar','{Eliminar();}', 'url'=>'#', 'titulo'=>Yii::t('default', 'Inactivate'), 'clase'=>''),
 );
 ?>
 
@@ -62,4 +63,51 @@ $this->menu=array(
 		*/
 	),
 ));
- ?>
+?>
+<!-- 
+funcion eliminar en SPS
+<script type="text/javascript">
+	idsel = [];
+	idchk = [];
+	function Eliminar()
+	{
+		idchk = $.fn.yiiGridView.getChecked('guias-grid', 'chk');
+		//alert(idchk);
+		if (idchk.length != 0)
+		{
+			var confirmar = confirm("<?php //echo Yii::t('default', 'Inactivate the items marked').'?'; ?>");
+			if (confirmar)
+			{
+				for (x=idchk.length; x>=1; x=x-1) 
+				{	 
+			    	jQuery.ajax({'url':'<?php// echo $this->createUrl('delete'); ?>' + '&id=' + idchk[x-1],'data':$(this).serialize(),'type':'post','dataType':'json','success':function(data)
+			        {
+						if (data.status == 'failure')
+						{
+							alert(data.respuesta);
+						}
+						else
+						{
+							$.fn.yiiGridView.update('guias-grid');
+							//alert(data.respuesta);
+						}
+					} ,'cache':false});;
+				}
+			}
+			else
+			{
+				alert("<?php //echo Yii::t('default', 'Operation Cancelled').'.'; ?>");
+			}
+			return false;
+		}
+		else 
+			var messg = "<?php //echo Yii::t('default', 'Must select a row.'); ?>";
+			alert(messg);
+			return;
+	}
+</script>
+ -->
+
+
+
+

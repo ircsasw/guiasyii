@@ -17,7 +17,16 @@ $this->breadcrumbs=array(
 <p>
 	Basado en:</br>
 	
-	Shadow Dancer - Yii Framework Theme
+	Shadow Dancer - Yii Framework Theme</br></br>
+	Theme Credits:</br></br>
+	<a href='http://iconsweets2.com/'>Iconsweets2</br>
+	<a href='http://www.famfamfam.com/lab/icons/'>Famfamfam Silk Icons</br>
+	<a href='http://www.yiiframework.com/extension/mbmenu/'>MbMenu</br>
+	<a href='http://www.yiiframework.com/extension/fullcalendar'>fullCalendar</br>
+	<a href='http://www.yiiframework.com/extension/tinymce'>TinyMCE using jQuery</br>
+	<a href='https://developers.google.com/chart/?hl=es-AR'>Google Chart Tools</br>
+	<a href='http://www.ivellios.toron.pl/technikalia/2010/06/22/gvchart-plugin-jquery-with-google-charts/'>gvChart - jQuery plugin</br>
+	
 </p>
 
 <p>
