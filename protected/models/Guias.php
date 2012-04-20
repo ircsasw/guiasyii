@@ -51,7 +51,7 @@ class Guias extends CActiveRecord
 			array('serie', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('destino_search,origen_search,baja_search,asigna_search,id, serie, folio, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
+			array('destino_search, origen_search, baja_search, asigna_search, id, serie, folio, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
 		);
 	}
 

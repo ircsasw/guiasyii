@@ -25,6 +25,11 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Origenes</h1>
 
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    if ($key=='counters') {continue;}
+    echo "<div class='flash-{$key}'>{$message}</div>";
+} ?>
+
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(

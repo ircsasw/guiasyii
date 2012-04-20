@@ -102,4 +102,14 @@ class Usuarios extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	/**
+	 * @return array flash message keys array
+	 */
+	public function getFlashKeys()
+	{
+	    $counters=$this->getState(self::FLASH_COUNTERS);
+	    if(!is_array($counters)) return array();
+	    return array_keys($counters);
+	}
 }

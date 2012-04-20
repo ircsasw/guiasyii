@@ -115,7 +115,14 @@ class OrigenesController extends Controller
 			//Falta mensaje emergente!!
 			$origenes = Guias::model()->find('id_origen=:cIDOrigen',array(':cIDOrigen'=>$id));
 			if (!(count($origenes)))
+			{
 				$this->loadModel($id)->delete();
+			}
+			else
+			{
+				Yii::app()->getUser()->setFlash('notice','El origen tiene guias asignadas, no se puede borrar.');
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			}
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))

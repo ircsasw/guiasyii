@@ -13,6 +13,11 @@ $this->menu=array(
 
 <h1>Asignaciones de guias del periodo</h1>
 
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    if ($key=='counters') {continue;}
+    echo "<div class='flash-{$key}'>{$message}</div>";
+} ?>
+
 <div class="wide form">
 
 <?php echo CHtml::form(CHtml::normalizeUrl(''), 'post'); ?>
@@ -32,7 +37,7 @@ $this->menu=array(
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Aceptar'); ?>
+		<?php echo CHtml::submitButton('Aceptar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php echo CHtml::endForm(); ?>

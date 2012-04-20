@@ -13,6 +13,11 @@ $this->menu=array(
 
 <h1>Bajas de guias por usuario</h1>
 
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    if ($key=='counters') {continue;}
+    echo "<div class='flash-{$key}'>{$message}</div>";
+} ?>
+
 <div class="wide form">
 
 <?php echo CHtml::form(CHtml::normalizeUrl(''), 'post'); ?>
@@ -24,13 +29,13 @@ $this->menu=array(
 	<div class="row">
 		<?php echo CHtml::activeLabel($model, 'id_baja')?>
 		<?php 
-			$datos = CHtml::listData(Usuarios::model()->findAll(),'id','usuario');
+			$datos = CHtml::listData(Usuarios::model()->findAll(),'id','nombre');
 			echo CHtml::activeDropDownList($model, 'id_baja', $datos, array('prompt'=>'Seleccionar'));
 		?>
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Aceptar'); ?>
+		<?php echo CHtml::submitButton('Aceptar',array('class'=>'button grey')); ?>
 	</div>
 
 <?php echo CHtml::endForm(); ?>
