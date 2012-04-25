@@ -49,25 +49,25 @@
 		
 		<?php $this->widget('application.extensions.mbmenu.MbMenu',array(
 			'items'=>array(
-					array('label'=>'Inicio', 'url'=>array('/site/index'),'itemOptions'=>array('class'=>'test')),
-					array('label'=>'Asignaciones', 'url'=>array('/guias/asigna')),
-					array('label'=>'Bajas', 'url'=>array('/guias/bajas')),
+					array('label'=>'Inicio', 'url'=>array('/site/index'),'itemOptions'=>array('class'=>'test'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'Asignaciones', 'url'=>array('/guias/asigna'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'Bajas', 'url'=>array('/guias/bajas'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Reportes',
 						'items'=>array(
-							array('label'=>'Asignaciones del periodo', 'url'=>array('/guias/asigxf')),
-							array('label'=>'Asignaciones del origen', 'url'=>array('/guias/asigxo')),
-							//array('label'=>'Bajas del Destino', 'url'=>array('/guias/bajxd')),
-							array('label'=>'Bajas del periodo', 'url'=>array('/guias/bajxf')),
-							array('label'=>'Bajas del destino', 'url'=>array('/guias/bajxd')),							
-							array('label'=>'Bajas del usuario', 'url'=>array('/guias/bajxu')),
-							array('label'=>'Guias disponibles', 'url'=>array('/guias/guiasd')),
-							array('label'=>'Guias disponibles del origen', 'url'=>array('/guias/guiasdxo')),
+							array('label'=>'Asignaciones del periodo', 'url'=>array('/guias/asigxf'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Asignaciones del origen', 'url'=>array('/guias/asigxo'), 'visible'=>!Yii::app()->user->isGuest),
+							//array('label'=>'Bajas del Destino', 'url'=>array('/guias/bajxd'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Bajas del periodo', 'url'=>array('/guias/bajxf'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Bajas del destino', 'url'=>array('/guias/bajxd'), 'visible'=>!Yii::app()->user->isGuest),							
+							array('label'=>'Bajas del usuario', 'url'=>array('/guias/bajxu'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Guias disponibles', 'url'=>array('/guias/guiasd'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Guias disponibles del origen', 'url'=>array('/guias/guiasdxo'), 'visible'=>!Yii::app()->user->isGuest),
 							
 							//array('label'=>'Interface Elements', 'url'=>array('/site/page', 'view'=>'interface')),
 							//array('label'=>'Error Pages', 'url'=>array('/site/page', 'view'=>'Demo 404 page')),
 							//array('label'=>'Calendar', 'url'=>array('/site/page', 'view'=>'calendar')),
 							//array('label'=>'Buttons & Icons', 'url'=>array('/site/page', 'view'=>'buttons_and_icons')),
-						),
+						), 'visible'=>!Yii::app()->user->isGuest
 					),
 					array('label'=>'Acerca de', 'url'=>array('/site/about')),
 					//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),

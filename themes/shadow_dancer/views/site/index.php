@@ -69,10 +69,10 @@
 </div><!-- END OF .dashIcons -->
 <div class="span-7 last">
 
-            Guias asignadas: 100/100
+            Guias disponibles: <?php $dis=round(($disponibles/$totalGuias)*100); echo $dis.'% ('.$disponibles.'/'.$totalGuias; ?>)
 			<?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
-				'value'=>100,
+				'value'=>$dis,
 				'htmlOptions'=>array(
 					'style'=>'height:10px;',
 					'class'=>'shadowprogressbar'
@@ -80,10 +80,10 @@
 			));
 			?>
             <br />
-            Guias disponibles: 45%
+            Asignadas <?php $asi=round(($top3[0]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[0]['origen'],0,15))).': '.$asi.'% ('.$top3[0]['totasig'].'/'.$totalGuias; ?>)
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
-				'value'=>45,
+				'value'=>$asi,
 				'htmlOptions'=>array(
 					'style'=>'height:10px;',
 					'class'=>'shadowprogressbar'
@@ -91,10 +91,10 @@
 			));
 			?>
             <br />
-            Asignadas Cancún: 10%
+            Asignadas <?php $asi=round(($top3[1]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[1]['origen'],0,15))).': '.$asi.'% ('.$top3[1]['totasig'].'/'.$totalGuias; ?>)
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
-				'value'=>10,
+				'value'=>$asi,
 				'htmlOptions'=>array(
 					'style'=>'height:10px;',
 					'class'=>'shadowprogressbar'
@@ -102,10 +102,10 @@
 			));
 			?>
             <br />
-            Asignadas Chetumal: 65%            
+            Asignadas <?php $asi=round(($top3[2]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[2]['origen'],0,15))).': '.$asi.'% ('.$top3[2]['totasig'].'/'.$totalGuias; ?>)            
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
-				'value'=>65,
+				'value'=>$asi,
 				'htmlOptions'=>array(
 					'style'=>'height:10px;',
 					'class'=>'shadowprogressbar'
@@ -113,10 +113,10 @@
 			));
 			?>
             <br />
-            Asignadas otros: 25%            
+            Asignadas <?php $otros=$totalGuias-($top3[0]['totasig']+$top3[1]['totasig']+$top3[2]['totasig']); $asi=round(($otros/$totalGuias)*100); echo 'Otros: '.$asi.'% ('.$otros.'/'.$totalGuias; ?>)            
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
-				'value'=>25,
+				'value'=>$asi,
 				'htmlOptions'=>array(
 					'style'=>'height:10px;',
 					'class'=>'shadowprogressbar'
@@ -127,6 +127,20 @@
                 
 <div class="span-10">
 <?php
+
+$a[1]  = "Ene"; 
+$a[2]  = "Feb"; 
+$a[3]  = "Mar"; 
+$a[4]  = "Abr"; 
+$a[5]  = "May"; 
+$a[6]  = "Jun"; 
+$a[7]  = "Jul"; 
+$a[8]  = "Ago";
+$a[9]  = "Sep";
+$a[10] = "Oct";
+$a[11] = "Nov";
+$a[12] = "Dic";
+
 $this->beginWidget('zii.widgets.CPortlet', array(
 	'title'=>'Operaciones del año',
 ));
@@ -138,46 +152,20 @@ $this->beginWidget('zii.widgets.CPortlet', array(
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Ene</th>
-                        <th>Feb</th>
-                        <th>Mar</th>
-                        <th>Abr</th>
-                        <th>May</th>
-                        <th>Jun</th>
-                        <th>Jul</th>
+                        <?php 
+                        	foreach ($bajxmes as $recrd)
+                        		echo '<th>'.$a[$recrd['mes']].'</th>';
+                        ?>
                     </tr>
                 </thead>
     
                 <tbody>
-                    <tr>
-                      <th>Asignaciones</th>
-                      <td>3923</td>
-                      <td>2923</td>
-                      <td>2931</td>
-                      <td>3942</td>
-                      <td>4921</td>
-                      <td>6934</td>
-                      <td>5934</td>
-                    </tr>
-                    <tr>
+                	<tr>
                       <th>Bajas</th>
-                      <td>3623</td>
-                      <td>2623</td>
-                      <td>2831</td>
-                      <td>3842</td>
-                      <td>4821</td>
-                      <td>6534</td>
-                      <td>5134</td>
-                    </tr>
-                    <tr>
-                      <th>Disponibles </th>
-                        <td>3523</td>
-                        <td>2223</td>
-                        <td>2531</td>
-                        <td>3342</td>
-                        <td>4521</td>
-                        <td>6234</td>
-                        <td>5434</td>
+                      <?php 
+                        	foreach ($bajxmes as $recrd)
+                        		echo '<td>'.$recrd['total'].'</td>';
+                      ?>
                     </tr>
                 </tbody>
             </table>
@@ -201,33 +189,44 @@ $this->beginWidget('zii.widgets.CPortlet', array(
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Ene</th>
-                        <th>Feb</th>
-                        <th>Mar</th>
-                        <th>Abr</th>
-                        <th>May</th>
-                        <th>Jun</th>
+                        <?php 
+                        	foreach ($a as $mes) {
+                        		echo '<th>'.$mes.'</th>';
+                        	}
+                        ?>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <th>Asignaciones</th>
-                        <td>39523</td>
-                        <td>26123</td>
-                        <td>29031</td>
-                        <td>34342</td>
-                        <td>48321</td>
-                        <td>42234</td>
+                        <?php 
+                        	for ($m=1; $m<=12; $m++) {
+                        		$total = 0;
+                        		foreach ($asixmes as $recrd) {
+                        			if ($recrd['mes']==$m) {
+                        				$total = $recrd['total'];
+                        				break;
+                        			}
+                        		}
+                        		echo '<td>'.$total.'</td>';
+                        	}
+                        ?>
                     </tr>
                     <tr>
                         <th>Bajas</th>
-                        <td>34523</td>
-                        <td>22123</td>
-                        <td>25031</td>
-                        <td>30342</td>
-                        <td>45321</td>
-                        <td>46234</td>
+                        <?php 
+                        	for ($m=1; $m<=12; $m++) {
+                        		$total = 0;
+                        		foreach ($bajxmes as $recrd) {
+                        			if ($recrd['mes']==$m) {
+                        				$total = $recrd['total'];
+                        				break;
+                        			}
+                        		}
+                        		echo '<td>'.$total.'</td>';
+                        	}
+                        ?>
                     </tr>
                 </tbody>
             </table>

@@ -27,15 +27,15 @@ class OrigenesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('delete','admin'),
+				'actions'=>array('delete','admin', 'create', 'update'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -117,11 +117,17 @@ class OrigenesController extends Controller
 			if (!(count($origenes)))
 			{
 				$this->loadModel($id)->delete();
+				if(!isset($_GET['ajax']))
+					Yii::app()->user->setFlash('success','El Origen se borro correctamente.');
+				else
+					echo "<div class='flash-success'>El Origen se borro correctamente.</div>";
 			}
-			else
+			else 
 			{
-				Yii::app()->getUser()->setFlash('notice','El origen tiene guias asignadas, no se puede borrar.');
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				if(!isset($_GET['ajax']))
+					Yii::app()->user->setFlash('error','El Origen NO se puede borrar por que tiene guias relacionadas.');
+				else
+					echo "<div class='flash-error'>El Origen NO se puede borrar por que tiene guias relacionadas.</div>"; //for ajax
 			}
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

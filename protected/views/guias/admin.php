@@ -27,6 +27,13 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Guias</h1>
 
+<div id="statusMsg">
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    if ($key=='counters') {continue;}
+    echo "<div class='flash-{$key}'>{$message}</div>";
+} ?>
+</div>
+
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 
@@ -35,15 +42,58 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php /*
+$deleteUrl = $this->createUrl('guias/delete');
+$this->widget('zii.widgets.jui.CJuiButton', array(
+		'name' => 'btnDelete',
+		'caption' => 'Borrar',
+		'buttonType' => 'button',
+        //'themeUrl' => Yii::app()->baseUrl . '/css/jui',
+        //'theme' => 'redmond',
+        //'cssFile' => array('jquery-ui.css'),
+        'options' => array('icons' => 'js:{primary:"ui-icon-closethick"}'),
+        'onclick' =>
+        'js:function()
+                {
+                    var th=this;
+                    var afterDelete=function(link,success,data){ if(success) $("#statusMsg").html(data); };
+                    var selectionIds = $.fn.yiiGridView.getSelection("guias-grid");
+                    if (selectionIds.length!==0) {
+                        if(!confirm("Are you sure you want to delete selected items?")) return false;
+                        $.fn.yiiGridView.update("guias-grid", {
+                        type:"POST",
+                        url:"' . $deleteUrl . '",
+                        data: {ids: selectionIds},
+                        dataType: "text",
+                        success:function(data) {
+                        	$.fn.yiiGridView.update("guias-grid");
+                        	afterDelete(th,true,data);
+                        },
+                        error:function(XHR) {
+                        	return afterDelete(th,false,XHR);
+                        }
+                        });
+                    }
+                    else
+                    {
+                        alert("nothing selected");
+                    }
+                    this.blur();
+                    return false;
+                }',
+        )
+);
+*/
+
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'guias-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'selectableRows'=> 2,
 	'columns'=>array(
 		array(
 		'class'=>'CCheckBoxColumn',
 		'value'=>'$data->id',
-		'selectableRows'=> 10,
 		'id'=>'chk',
 		),
 		//'id',

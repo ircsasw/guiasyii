@@ -27,15 +27,15 @@ class DestinosController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin', 'delete', 'create', 'update'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -111,12 +111,22 @@ class DestinosController extends Controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
-			//Falta un mensaje emergente
 			$destinos = Guias::model()->find('id_destino=:cIDDestino',array(':cIDDestino'=>$id));
 			if (!(count($destinos)))
+			{
 				$this->loadModel($id)->delete();
-			else 
+				if(!isset($_GET['ajax']))
+					Yii::app()->user->setFlash('success','El Destino se borro correctamente.');
+				else
+					echo "<div class='flash-success'>El Destino se borro correctamente.</div>";
+			}
+			else  
+			{
+				if(!isset($_GET['ajax']))
+					Yii::app()->user->setFlash('error','El Destino NO se puede borrar por que tiene guias relacionadas.');
+				else
+					echo "<div class='flash-error'>El Destino NO se puede borrar por que tiene guias relacionadas.</div>"; //for ajax
+			}
 			
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

@@ -25,6 +25,13 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Usuarios</h1>
 
+<div id="statusMsg">
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    if ($key=='counters') {continue;}
+    echo "<div class='flash-{$key}'>{$message}</div>";
+} ?>
+</div>
+
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -48,8 +55,7 @@ $('.search-form form').submit(function(){
 		'nombre',
 			array(
 				'class'=>'CButtonColumn',
-				'template' => '{view} {update} {delete}',
-				'afterDelete'=>'function(success){ if(success) alert("Delete completed successfuly"); }',
+				'afterDelete'=>'function(link,success,data){ if(success) $("#statusMsg").html(data); }',
 			),
 	),
 )); ?>

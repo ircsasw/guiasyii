@@ -27,15 +27,15 @@ class UsuariosController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('view','index'),
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('delete','admin'),
+				'actions'=>array('delete','admin', 'create','update'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -116,22 +116,30 @@ class UsuariosController extends Controller
 		{
 			// we only allow deletion via POST request
 			if ($id != 1)
-				$this->loadModel($id)->delete();
+			{
+				$usuariorel = Guias::model()->find('id_asigna=:cIDUsuario OR id_baja=:cIDUsuario', array(':cIDUsuario'=>$id));
+				if (!(count($usuariorel)))
+				{
+					$this->loadModel($id)->delete();
+					if(!isset($_GET['ajax']))
+						Yii::app()->user->setFlash('success','El Usuario se borro correctamente.');
+					else
+						echo "<div class='flash-success'>El Usuario se borro correctamente.</div>";
+				}
+				else  
+				{
+					if(!isset($_GET['ajax']))
+						Yii::app()->user->setFlash('error','El Usuario NO se puede borrar por que tiene guias relacionadas.');
+					else
+						echo "<div class='flash-error'>El Usuario NO se puede borrar por que tiene guias relacionadas.</div>"; //for ajax
+				}
+			}
 			else
 			{
-				$this->beginWidget('zii.widgets.jui.CJuiDialog', array( 
-				    'options'=>array(
-				        'title'=>'ERROR',
-				        'autoOpen'=>true,
-				        'modal'=>true,
-				        'width'=>300,
-				        'height'=>100,
-				    ),
-				    ));
-				    echo 'La guia no existe';
-				$this->endWidget();
-					    
-					    
+				if(!isset($_GET['ajax']))
+					Yii::app()->user->setFlash('error','El Usuario super-administrador NO se puede borrar.');
+				else
+					echo "<div class='flash-error'>El Usuario super-administrador NO se puede borrar.</div>"; //for ajax    
 			}
 
 

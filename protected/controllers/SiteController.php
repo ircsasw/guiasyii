@@ -31,7 +31,61 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		if (Yii::app()->user->isGuest== false) 
 		{
-			$this->render('index');
+			/* 
+			 * Realiza los cálculos para las gráficas y las barras
+			 */
+			
+			// Total de guias en la base de datos
+			$totalGuias = Guias::model()->count();
+			
+			// - porcentaje de guias disponibles
+			$disponibles = Guias::model()->count('id_destino = 0');
+			
+			// - TOP 3 de asignaciones por origen
+			$top3 = Yii::app()->db->createCommand()
+				->select('b.origen, count(a.id_origen) as totasig')
+				->from('guias AS a, origenes AS b')
+				->where('a.id_origen = b.id')
+				->order('totasig DESC')
+				->limit(3)
+				->group('id_origen')
+				->queryAll();
+			//var_dump($top3); die();
+			
+			// - Total de bajas por mes del año actual
+			$bajxmes = Yii::app()->db->createCommand()
+				->select('MONTH(fecha_baja) as mes, COUNT(fecha_baja) as total')
+				->from('guias')
+				->where('id_destino>0 AND YEAR(fecha_baja)=:anio', array('anio'=>date('Y')))
+				->group('MONTH(fecha_baja)')
+				->queryAll();
+			//var_dump($bajxmes); die();
+			
+			// - Total de asignaciones por mes del año actual
+			$asixmes = Yii::app()->db->createCommand()
+				->select('MONTH(fecha_asig) as mes, COUNT(fecha_asig) as total')
+				->from('guias')
+				->where('YEAR(fecha_asig)=:anio', array('anio'=>date('Y')))
+				->group('MONTH(fecha_asig)')
+				->queryAll();
+			//var_dump($asixmes); die();
+			
+			$asi_baj = array(
+				'Ene'=>array(),
+				'Feb'=>array(),
+				'Mar'=>array(),
+				'Abr'=>array(),
+				'May'=>array(),
+				'Jun'=>array(),
+				'Jul'=>array(),
+				'Ago'=>array(),
+				'Sep'=>array(),
+				'Oct'=>array(),
+				'Nov'=>array(),
+				'Dic'=>array(),
+			);
+			
+			$this->render('index', array('totalGuias'=>$totalGuias, 'disponibles'=>$disponibles, 'top3'=>$top3, 'bajxmes'=>$bajxmes, 'asixmes'=>$asixmes));
 		}
 		else 
 		{

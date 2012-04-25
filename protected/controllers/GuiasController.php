@@ -27,16 +27,16 @@ class GuiasController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+			array('allow',  // todos los usuarios pueden: 
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd','bajas'),
+			array('allow', // usuarios autenticados pueden: 
+				'actions'=>array('view', 'bajas'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+			array('allow', // el usuario admin puede:
+				'actions'=>array('admin','delete', 'create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -250,6 +250,10 @@ class GuiasController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	/*
+	 * 
+	 */
 	public function actionBajas()
 	{
 		$model = new BajasForm();

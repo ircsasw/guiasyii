@@ -23,8 +23,34 @@ $this->menu=array(
 	
 	
 	<div class="row">
-		<?php echo CHtml::activeLabel($model, 'fecha')?>
-		<?php echo CHtml::activeTextField($model, 'fecha', array('size'=>20,'maxlength'=>10)) ?> 
+		<?php echo CHtml::activeLabel($model, 'fecha'); ?>
+		<?php 
+			//echo CHtml::activeTextField($model, 'fecha', array('size'=>20,'maxlength'=>10));
+			$this->widget('zii.widgets.jui.CJuiDatePicker',
+				array(
+					'model'=>'$model',
+					'name'=>'BajasForm[fecha]',
+					//'language'=>Yii::t('default', 'en'),
+					//'value'=>$model->fecha_alta,
+					'value'=>Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($model->fecha, 'yyyy-MM-dd'),'medium',null),
+					'htmlOptions'=>array(
+						//'size'=>10, 
+						'style'=>'width:80px;vertical-align:top'
+					),
+					'options'=>array(
+						'showAnim'=>'fold', // 'show' (the default), 'slideDown', 'fadeIn', 'fold'
+						'showOn'=>'both', // 'focus', 'button', 'both'
+						'buttonText'=>Yii::t('default','Select from calendar'), 
+						'buttonImage'=>Yii::app()->request->baseUrl.'/images/calendar.png', 
+						'buttonImageOnly'=>true,
+						'dateFormat'=>'dd/mm/yy',
+						'showButtonPanel'=>true,
+						'changeYear'=>true,
+						'changeYear'=>true,
+					),
+				)
+			);
+		?>
 	</div>
 	
 	<div class="row">
