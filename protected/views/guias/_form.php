@@ -10,17 +10,21 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'serie'); ?>
-		<?php echo $form->textField($model,'serie',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'serie'); ?>
+		<?php echo $form->labelEx($model,'factura'); ?>
+		<?php echo $form->textField($model,'factura',array('size'=>10,'maxlength'=>20)); ?>
+		<?php echo $form->error($model,'factura'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'folio'); ?>
 		<?php echo $form->textField($model,'folio'); ?>
 		<?php echo $form->error($model,'folio'); ?>
-
-		 
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'zona'); ?>
+		<?php echo $form->textField($model,'zona'); ?>
+		<?php echo $form->error($model,'zona'); ?>
 	</div>
 
 	<div class="row">
@@ -60,7 +64,7 @@
 	</div>
 */?>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

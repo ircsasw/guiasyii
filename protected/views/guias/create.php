@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Guias', 'url'=>array('index')),
-	array('label'=>'Manage Guias', 'url'=>array('admin')),
+	array('label'=>'Lista Guias', 'url'=>array('index')),
+	array('label'=>'Administrar Guias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Guias</h1>
+<h1>Crear Guias</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

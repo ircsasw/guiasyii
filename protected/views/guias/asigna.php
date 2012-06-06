@@ -32,8 +32,18 @@ $this->menu=array(
 		'id'=>'chk',
 		),
 		//'id',
-		'serie',
-		'folio',
+		array(
+			'name'=>'factura',
+			'htmlOptions'=>array('style'=>'width: 30px'),
+		),
+		array(
+			'name'=>'folio',
+			'htmlOptions'=>array('style'=>'width: 30px'),
+		),
+		array(
+			'name'=>'zona',
+			'htmlOptions'=>array('style'=>'width: 20px'),
+		),
 		'fecha_asig',
 		/*array(
 			'name'=>'fecha_asig',

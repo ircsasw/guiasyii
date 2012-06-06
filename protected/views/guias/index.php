@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Guias', 'url'=>array('create')),
-	array('label'=>'Manage Guias', 'url'=>array('admin')),
+	array('label'=>'Crear Guias', 'url'=>array('asigna')),
+	array('label'=>'Administrar Guias', 'url'=>array('admin')),
 );
 ?>
 

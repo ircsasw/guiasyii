@@ -6,13 +6,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Guias', 'url'=>array('index')),
-	array('label'=>'Create Guias', 'url'=>array('create')),
-	array('label'=>'View Guias', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Guias', 'url'=>array('admin')),
+	array('label'=>'Lista Guias', 'url'=>array('index')),
+	array('label'=>'Crear Guias', 'url'=>array('asigna')),
+	array('label'=>'Ver Guia', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar Guias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Guias <?php echo $model->id; ?></h1>
+<h1>Editar Guia <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

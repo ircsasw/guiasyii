@@ -7,8 +7,13 @@
 	<?php echo CHtml::errorSummary($modelasigna); ?>
 
 	<div class="row">
+		<?php echo CHtml::activeLabel($modelasigna,'factura'); ?>
+		<?php echo CHtml::activeTextField($modelasigna, 'factura', array('size'=>12,'maxlength'=>20)) ?>
+	</div>
+	
+	<div class="row">
 		<?php echo CHtml::activeLabel($modelasigna,'serie'); ?>
-		<?php echo CHtml::activeTextField($modelasigna, 'serie', array('size'=>12,'maxlength'=>10)) ?>
+		<?php echo CHtml::activeTextField($modelasigna, 'serie', array('size'=>12,'maxlength'=>20)) ?>
 	</div>
 
 	<div class="row">
@@ -16,6 +21,11 @@
 		<?php echo CHtml::activeTextField($modelasigna, 'folio_ini', array('size'=>12,'maxlength'=>10)) ?> 
 		<?php echo CHtml::activeLabel($modelasigna, 'folio_fin', array('style'=>'margin-right: 10px; text-aling: right; width: 100px; font-size: 0.9em; font-weight: bold; border: 0 none; padding: 0; vertical-align: baseline; float: none; display: inline;'))?>
 		<?php echo CHtml::activeTextField($modelasigna, 'folio_fin', array('size'=>12,'maxlength'=>10))?>
+	</div>
+	
+	<div class="row">
+		<?php echo CHtml::activeLabel($modelasigna,'zona'); ?>
+		<?php echo CHtml::activeTextField($modelasigna, 'zona', array('size'=>12,'maxlength'=>2)) ?>
 	</div>
 
 	<div class="row">

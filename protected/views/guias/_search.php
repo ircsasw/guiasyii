@@ -6,18 +6,18 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'serie'); ?>
-		<?php echo $form->textField($model,'serie',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'factura'); ?>
+		<?php echo $form->textField($model,'factura',array('size'=>10,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'folio'); ?>
 		<?php echo $form->textField($model,'folio'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'zona'); ?>
+		<?php echo $form->textField($model,'zona',array('size'=>10,'maxlength'=>2)); ?>
 	</div>
 
 	<div class="row">

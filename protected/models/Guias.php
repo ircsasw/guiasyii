@@ -5,8 +5,9 @@
  *
  * The followings are the available columns in table 'guias':
  * @property integer $id
- * @property string $serie
+ * @property string $factura
  * @property integer $folio
+ * @property integer $zona
  * @property string $fecha_asig
  * @property integer $id_origen
  * @property integer $id_asigna
@@ -46,12 +47,12 @@ class Guias extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//array('fecha_asig','fecha_baja','date','format'=>'dd-mm-yy'),
-			array('serie, fecha_asig, id_origen, id_asigna', 'required'),
-			array('folio, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
-			array('serie', 'length', 'max'=>10),
+			array('folio, fecha_asig, id_origen, id_asigna', 'required'),
+			array('zona, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
+			array('factura, folio', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('destino_search, origen_search, baja_search, asigna_search, id, serie, folio, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
+			array('destino_search, origen_search, baja_search, asigna_search, id, factura, folio, zona, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,8 +78,9 @@ class Guias extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'serie' => 'Serie',
+			'factura' => 'Factura',
 			'folio' => 'Folio',
+			'zona' => 'Zona',
 			'fecha_asig' => 'Fecha de Asignación',
 			'id_origen' => 'Origen',
 			'origen_search' =>'Origen',
@@ -105,8 +107,9 @@ class Guias extends CActiveRecord
 		$criteria->with = array( 'idDestino','idUsuarioB','idUsuarioA','idOrigen' );
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('serie',$this->serie,true);
-		$criteria->compare('folio',$this->folio);
+		$criteria->compare('factura',$this->factura,true);
+		$criteria->compare('folio',$this->folio, true);
+		$criteria->compare('zona',$this->zona);
 		$criteria->compare('fecha_asig',$this->fecha_asig,true);
 		$criteria->compare('idOrigen.origen',$this->origen_search,true);
 		$criteria->compare('idUsuarioA.usuario',$this->asigna_search,true);

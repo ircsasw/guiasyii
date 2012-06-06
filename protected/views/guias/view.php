@@ -5,22 +5,23 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Guias', 'url'=>array('index')),
-	array('label'=>'Create Guias', 'url'=>array('create')),
-	array('label'=>'Update Guias', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Guias', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Guias', 'url'=>array('admin')),
+	array('label'=>'Lista Guias', 'url'=>array('index')),
+	array('label'=>'Crear Guias', 'url'=>array('asigna')),
+	array('label'=>'Editar Guia', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Borrar Guia', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Seguro que desea eliminar esta guia?')),
+	array('label'=>'Administrar Guias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Guias #<?php echo $model->id; ?></h1>
+<h1>Ver Guia #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'serie',
+		//'id',
+		'factura',
 		'folio',
+		'zona',
 		'fecha_asig',
 		'id_origen',
 		'id_asigna',

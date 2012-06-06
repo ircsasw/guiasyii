@@ -54,16 +54,9 @@ $this->menu=array(
 	</div>
 	
 	<div class="row">
-		<?php echo CHtml::activeLabel($model, 'serie')?>
-		<?php echo CHtml::activeTextField($model, 'serie', array('size'=>20,'maxlength'=>20)) ?> 
-	</div>
-	
-	<div class="row">
 		<?php echo CHtml::activeLabel($model, 'folio')?> 
-		<?php echo CHtml::activeTextField($model, 'folio', array('size'=>20,'maxlength'=>10))?>
+		<?php echo CHtml::activeTextField($model, 'folio', array('size'=>20,'maxlength'=>20))?>
 	</div>
-	
-
 
 	<div class="row">
 		<?php echo CHtml::activeLabel($model, 'id_destino')?>

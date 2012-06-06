@@ -1,15 +1,15 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('serie')); ?>:</b>
-	<?php echo CHtml::encode($data->serie); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('factura')); ?>:</b>
+	<?php echo CHtml::encode($data->factura); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('folio')); ?>:</b>
-	<?php echo CHtml::encode($data->folio); ?>
+	<?php echo CHtml::link(CHtml::encode($data->folio), array('view', 'id'=>$data->id)); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('zona')); ?>:</b>
+	<?php echo CHtml::encode($data->zona); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_asig')); ?>:</b>

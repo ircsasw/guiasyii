@@ -36,7 +36,7 @@ class GuiasController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // el usuario admin puede:
-				'actions'=>array('admin','delete', 'create','update', 'asigna', 'crearepo','asigxf','asigxo','bajxd','bajxf','bajxu','guiasdxo','guiasd'),
+				'actions'=>array('admin', 'delete', 'create', 'update', 'asigna', 'crearepo', 'asigxf', 'asigxo', 'bajxd', 'bajxf', 'bajxu', 'guiasdxo', 'guiasd'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -106,18 +106,25 @@ class GuiasController extends Controller
 				$serie    = $modelasigna->serie;
 				$origen   = $modelasigna->id_origen;
 				$asigna   = $modelasigna->asignado;
+				$factura  = $modelasigna->factura;
+				$zona     = $modelasigna->zona;
 				$asignado = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
 				
-				$asignadas = Guias::model()->find('folio>= :FolioIni AND folio <= :FolioFin AND serie = :cSerie', array(':FolioIni'=>$inicio, ':FolioFin'=>$fin,':cSerie'=>$serie));
+				// Busca el rango de folios y serie
+				//$asignadas = Guias::model()->find('folio>= :FolioIni AND folio <= :FolioFin AND serie = :cSerie', array(':FolioIni'=>$inicio, ':FolioFin'=>$fin,':cSerie'=>$serie));
+				// Busca si hay guias con la factura y serie+folio inicial
+				$elPrimero = $serie.$inicio;
+				$asignadas = Guias::model()->find('folio >= :SerieFolioIni AND factura = :Factura', array(':SerieFolioIni'=>$elPrimero, ':Factura'=>$factura));
 				if (!count($asignadas))
 				{
 					for ( $i=$inicio; $i<=$fin ; $i++)
 					{
 						$model = new Guias;
 						
-						$model->serie      = $serie;
+						$model->factura    = $factura;
 						$model->fecha_asig = $asignado;
-						$model->folio      = $i;
+						$model->folio      = $serie.$i;
+						$model->zona       = $zona;
 						$model->id_origen  = $origen;
 						$model->id_asigna  = $asigna;
 						
@@ -128,7 +135,6 @@ class GuiasController extends Controller
 					$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 					$modelasigna->asignado = Yii::app()->user->id;
 				}
-				
 				else 
 				{
 					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
@@ -266,7 +272,8 @@ class GuiasController extends Controller
 			
 			if($model->validate())
 			{	
-				$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
+				//$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
+				$guias = Guias::model()->find('folio=:cFolio',array(':cFolio'=>$model->folio));
 				// validar que hay resultado
 				if (count($guias) && $guias->id_baja ==0)
 				{
