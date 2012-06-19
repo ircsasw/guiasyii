@@ -15,8 +15,8 @@
 <div class="span-23 showgrid">
 <div class="dashboardIcons span-16">
     <div class="dashIcon span-3">
-        <a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/baja'; ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/big_icons/icon-outbox2.png" alt="Bajas" /></a>
-        <div class="dashIconText "><a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/baja'; ?>">Bajas</a></div>
+        <a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/bajas'; ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/big_icons/icon-outbox2.png" alt="Bajas" /></a>
+        <div class="dashIconText "><a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/bajas'; ?>">Bajas</a></div>
     </div>
     
     <div class="dashIcon span-3">
@@ -69,7 +69,14 @@
 </div><!-- END OF .dashIcons -->
 <div class="span-7 last">
 
-            Guias disponibles: <?php $dis=round(($disponibles/$totalGuias)*100); echo $dis.'% ('.$disponibles.'/'.$totalGuias; ?>)
+            Guias disponibles: 
+            <?php 
+            if ($totalGuias > 0)	
+            	$dis=round(($disponibles/$totalGuias)*100);
+            else 
+            	$dis=0;
+            echo $dis.'% ('.$disponibles.'/'.$totalGuias.')';
+            ?>
 			<?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
 				'value'=>$dis,
@@ -80,7 +87,13 @@
 			));
 			?>
             <br />
-            Asignadas <?php $asi=round(($top3[0]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[0]['origen'],0,15))).': '.$asi.'% ('.$top3[0]['totasig'].'/'.$totalGuias; ?>)
+            Asignadas 
+            <?php 
+            if ($totalGuias > 0)
+            	$asi=round(($top3[0]['totasig']/$totalGuias)*100); 
+            else 
+            	$asi=0;
+            echo  ucwords(strtolower(substr($top3[0]['origen'],0,15))).': '.$asi.'% ('.$top3[0]['totasig'].'/'.$totalGuias; ?>)
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
 				'value'=>$asi,
@@ -91,7 +104,13 @@
 			));
 			?>
             <br />
-            Asignadas <?php $asi=round(($top3[1]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[1]['origen'],0,15))).': '.$asi.'% ('.$top3[1]['totasig'].'/'.$totalGuias; ?>)
+            Asignadas 
+            <?php 
+            if ($totalGuias > 0)
+            	$asi=round(($top3[1]['totasig']/$totalGuias)*100); 
+            else 
+            	$asi = 0;
+            echo  ucwords(strtolower(substr($top3[1]['origen'],0,15))).': '.$asi.'% ('.$top3[1]['totasig'].'/'.$totalGuias; ?>)
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
 				'value'=>$asi,
@@ -102,7 +121,13 @@
 			));
 			?>
             <br />
-            Asignadas <?php $asi=round(($top3[2]['totasig']/$totalGuias)*100); echo  ucwords(strtolower(substr($top3[2]['origen'],0,15))).': '.$asi.'% ('.$top3[2]['totasig'].'/'.$totalGuias; ?>)            
+            Asignadas 
+            <?php 
+            if ($totalGuias > 0)
+           		$asi=round(($top3[2]['totasig']/$totalGuias)*100); 
+           	else 
+           		$asi=0;
+           	echo  ucwords(strtolower(substr($top3[2]['origen'],0,15))).': '.$asi.'% ('.$top3[2]['totasig'].'/'.$totalGuias; ?>)            
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
 				'value'=>$asi,
@@ -113,7 +138,14 @@
 			));
 			?>
             <br />
-            Asignadas <?php $otros=$totalGuias-($top3[0]['totasig']+$top3[1]['totasig']+$top3[2]['totasig']); $asi=round(($otros/$totalGuias)*100); echo 'Otros: '.$asi.'% ('.$otros.'/'.$totalGuias; ?>)            
+            Asignadas 
+            <?php 
+            $otros=$totalGuias-($top3[0]['totasig']+$top3[1]['totasig']+$top3[2]['totasig']); 
+            if ($totalGuias > 0)
+            	$asi=round(($otros/$totalGuias)*100); 
+            else
+            	$asi=0;
+            echo 'Otros: '.$asi.'% ('.$otros.'/'.$totalGuias; ?>)
             <?php
 			$this->widget('zii.widgets.jui.CJuiProgressBar', array(
 				'value'=>$asi,

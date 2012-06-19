@@ -22,7 +22,7 @@
     
     <div class="dashIcon span-3">
         <a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/bajxf'; ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/big_icons/icon-outbox2.png" alt="Bajas del periodo" /></a>
-        <div class="dashIconText"><a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=origenes/bajxf'; ?>">Bajas del <br>periodo</a></div>
+        <div class="dashIconText"><a href="<?php echo Yii::app()->request->baseUrl.'/index.php?r=guias/bajxf'; ?>">Bajas del <br>periodo</a></div>
     </div>
     
     <div class="dashIcon span-3">

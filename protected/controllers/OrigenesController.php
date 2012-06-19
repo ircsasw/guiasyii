@@ -36,7 +36,7 @@ class OrigenesController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('delete','admin', 'create', 'update'),
-				'users'=>array('admin'),
+				'users'=>array('admin', 'Oscar'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
