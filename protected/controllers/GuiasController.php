@@ -7,8 +7,8 @@ class GuiasController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-	
-	
+
+
 	/**
 	 * @return array action filters
 	 */
@@ -27,11 +27,11 @@ class GuiasController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // todos los usuarios pueden: 
+			array('allow',  // todos los usuarios pueden:
 				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
-			array('allow', // usuarios autenticados pueden: 
+			array('allow', // usuarios autenticados pueden:
 				'actions'=>array('view', 'bajas'),
 				'users'=>array('@'),
 			),
@@ -71,34 +71,34 @@ class GuiasController extends Controller
 		{
 			$model->attributes=$_POST['Guias'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));			
+				$this->redirect(array('view','id'=>$model->id));
 		}
-		
+
         	$this->render('create',array('model'=>$model,));
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * Enter description here ...
 	 */
 	public function actionAsigna()
 	{
 		$modelasigna = new AsignaForm();
-		
+
 		$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 		$modelasigna->asignado = Yii::app()->user->id;
-		
+
 		$modeladmin = new Guias('search');
 		$modeladmin->unsetAttributes();  // clear any default values
-		
+
 		if(isset($_GET['Guias']))
 			$modeladmin->attributes=$_GET['Guias'];
-		
+
 		if(isset($_POST['AsignaForm']))
 		{
 			$modelasigna->attributes=$_POST['AsignaForm'];
 			//$modelasigna->fecha_asig = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
-			
+
 			if($modelasigna->validate())
 			{
 				$inicio   = $modelasigna->folio_ini;
@@ -108,8 +108,9 @@ class GuiasController extends Controller
 				$asigna   = $modelasigna->asignado;
 				$factura  = $modelasigna->factura;
 				$zona     = $modelasigna->zona;
+				$kilaje   = $modelasigna->kilaje;
 				$asignado = date('Y-m-d', CDateTimeParser::parse($modelasigna->fecha_asig, Yii::app()->locale->getDateFormat('medium')));
-				
+
 				// Busca el rango de folios y serie
 				//$asignadas = Guias::model()->find('folio>= :FolioIni AND folio <= :FolioFin AND serie = :cSerie', array(':FolioIni'=>$inicio, ':FolioFin'=>$fin,':cSerie'=>$serie));
 				// Busca si hay guias con la factura y serie+folio inicial
@@ -120,22 +121,23 @@ class GuiasController extends Controller
 					for ( $i=$inicio; $i<=$fin ; $i++)
 					{
 						$model = new Guias;
-						
+
 						$model->factura    = $factura;
 						$model->fecha_asig = $asignado;
 						$model->folio      = $serie.$i;
 						$model->zona       = $zona;
+						$model->kilaje     = $kilaje;
 						$model->id_origen  = $origen;
 						$model->id_asigna  = $asigna;
-						
+
 						$model->save();
 					}
-					
+
 					$modelasigna->unsetAttributes();
 					$modelasigna->fecha_asig = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 					$modelasigna->asignado = Yii::app()->user->id;
 				/*}
-				else 
+				else
 				{
 					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 					    'id'=>'mydialog',
@@ -149,17 +151,17 @@ class GuiasController extends Controller
 						)
 					));
 					echo 'Rango de guias no disponible';
-					
+
 					$this->endWidget('zii.widgets.jui.CJuiDialog');
 				}*/
-				
+
 				$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));
 			}
 			else
-				$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));	
+				$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));
 		}
-		else 
-			$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));	
+		else
+			$this->render('asigna', array('modeladmin'=>$modeladmin, 'modelasigna'=>$modelasigna));
 	}
 	/**
 	 * Updates a particular model.
@@ -256,22 +258,22 @@ class GuiasController extends Controller
 			Yii::app()->end();
 		}
 	}
-	
+
 	/*
-	 * 
+	 *
 	 */
 	public function actionBajas()
 	{
 		$model = new BajasForm();
 		$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 		$model->id_baja= Yii::app()->user->id;
-				
+
 		if (isset($_POST['BajasForm']))
 		{
 			$model->attributes=$_POST['BajasForm'];
-			
+
 			if($model->validate())
-			{	
+			{
 				//$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
 				$guias = Guias::model()->find('folio=:cFolio',array(':cFolio'=>$model->folio));
 				// validar que hay resultado
@@ -279,13 +281,13 @@ class GuiasController extends Controller
 				{
 					$guias->id_destino = $model->id_destino;
 					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));
-					$guias->id_baja = $model->id_baja; 
+					$guias->id_baja = $model->id_baja;
 					$guias->save();
 					$model->unsetAttributes();
 					$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 					$model->id_baja= Yii::app()->user->id;
-					
-					$this->beginWidget('zii.widgets.jui.CJuiDialog', array( 
+
+					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 					    'options'=>array(
 					        'title'=>'Baja correcta',
 					        'autoOpen'=>true,
@@ -297,9 +299,9 @@ class GuiasController extends Controller
 					    echo 'La guia se dió de baja.';
 					$this->endWidget();
 				}
-				else 
+				else
 				{
-					$this->beginWidget('zii.widgets.jui.CJuiDialog', array( 
+					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 					    'options'=>array(
 					        'title'=>'ERROR',
 					        'autoOpen'=>true,
@@ -310,15 +312,15 @@ class GuiasController extends Controller
 					    ));
 					    echo 'La guia no existe.';
 					$this->endWidget();
-					    
-					    
+
+
 				}
-					
+
 			}
 		}
-		
-		$this->render('bajas',array('model'=>$model, 'modeladmin'=>$modeladmin));
-		
+
+		$this->render('bajas',array('model'=>$model));
+
 	}
 	/**
 	 * Reporte Asignados de la fecha
@@ -327,10 +329,10 @@ class GuiasController extends Controller
 	public function actionAsigxf()
 	{
 		$model = new ReportesForm();
-		
+
 		$model->fecha_ini = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 		$model->fecha_fin = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
-		
+
 		if (isset($_POST['ReportesForm']))
 		{
 			$model->attributes=$_POST['ReportesForm'];
@@ -339,13 +341,13 @@ class GuiasController extends Controller
 			{
 				$finicial = date('Y-m-d', CDateTimeParser::parse($model->fecha_ini, Yii::app()->locale->getDateFormat('medium')));
 				$ffinal   = date('Y-m-d', CDateTimeParser::parse($model->fecha_fin, Yii::app()->locale->getDateFormat('medium')));
-				
+
 				$guias = Guias::model()->findAll('fecha_asig >= :fInicial AND fecha_asig <= :fFinal', array(':fInicial'=>$finicial, ':fFinal'=>$ffinal));
 				if (count($guias)>0)
 				{
 					$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 					$html = $this->renderPartial('_asigxf', array('model'=>$guias), true, true);
-					
+
 					$pdf->SetCreator(PDF_CREATOR);
 					$pdf->SetAuthor("Control Guias Plus");
 					$pdf->SetTitle("Asignaciones de guias del periodo");
@@ -356,7 +358,7 @@ class GuiasController extends Controller
 					$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 					$pdf->SetHeaderData("", '30', "Asignaciones de guias del periodo", "Periodo: $model->fecha_ini al $model->fecha_fin ");
 					//$pdf->SetHeaderData2('0',"", "","","","","","", "", "", "C01");
-					
+
 					$pdf->SetHeaderMargin(5);
 					$pdf->SetFooterMargin(10);
 					$pdf->SetTopMargin(25);
@@ -372,31 +374,31 @@ class GuiasController extends Controller
 					$pdf->Output("example_002.pdf", "I");
 					//return $pdf;
 				}
-				else 
+				else
 				{
 					Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 					$this->refresh();
 				}
 			}
-			
+
 		}
-		
+
 		$this->render('asigxf',array(
 			'model'=>$model,
 		));
 	}
-	
+
 	public function actionAsigxo()
 	{
 		$model = new ReportesFormOrigen();
 		//$model->unsetAttributes();
-		
+
 		if (isset($_POST['ReportesFormOrigen']))
 		{
 			$model->attributes=$_POST['ReportesFormOrigen'];
-			
+
 			if($model->validate())
-			{	
+			{
 				$origen = $model->id_origen;
 				$guias = Guias::model()->findAll('id_origen=:cOrigen',array(':cOrigen'=> $origen));
 				$cOrigen = Origenes::model()->findByPk($origen);
@@ -404,15 +406,15 @@ class GuiasController extends Controller
 				{
 					$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 					$html = $this->renderPartial('_asigxo', array('model'=>$guias), true, true);
-	
+
 					$pdf->SetCreator(PDF_CREATOR);
 					$pdf->SetAuthor("Control Guias Plus");
 					$pdf->SetTitle("Asignaciones de guias del origen");
-					
+
 					$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 					$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 					$pdf->SetHeaderData("", '30', "Asignaciones de guias del origen", "Origen: $cOrigen->origen");
-					
+
 					$pdf->SetHeaderMargin(5);
 					$pdf->SetFooterMargin(10);
 					$pdf->SetTopMargin(25);
@@ -423,20 +425,20 @@ class GuiasController extends Controller
 					$pdf->lastPage();
 					$pdf->Output("example_002.pdf", "I");
 				}
-				else 
+				else
 				{
 					Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 					$this->refresh();
 				}
 			}
 		}
-		
+
 		$this->render('asigxo',
-			array('model'=>$model, 
+			array('model'=>$model,
 		));
-		
+
 	}
-	
+
 	public function actionBajxd ()
 	{
 		$criteria = new CDbCriteria();
@@ -452,11 +454,11 @@ class GuiasController extends Controller
 			$pdf->SetCreator(PDF_CREATOR);
 			$pdf->SetAuthor("Control Guias Plus");
 			$pdf->SetTitle("Bajas por destino");
-			
+
 			$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 			$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 			$pdf->SetHeaderData("", '30', "Bajas agrupadas por destino", "");
-			
+
 			$pdf->SetHeaderMargin(5);
 			$pdf->SetFooterMargin(10);
 			$pdf->SetTopMargin(25);
@@ -467,7 +469,7 @@ class GuiasController extends Controller
 			$pdf->lastPage();
 			$pdf->Output("example_002.pdf", "I");
 		}
-		else 
+		else
 		{
 			Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 			$this->redirect('index.php?r=site/reportes');
@@ -477,10 +479,10 @@ class GuiasController extends Controller
 	public function actionBajxf ()
 	{
 		$model = new ReportesForm();
-		
+
 		$model->fecha_ini = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
 		$model->fecha_fin = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
-		
+
 		if (isset($_POST['ReportesForm']))
 		{
 			$model->attributes=$_POST['ReportesForm'];
@@ -489,7 +491,7 @@ class GuiasController extends Controller
 			{
 				$finicial = date('Y-m-d', CDateTimeParser::parse($model->fecha_ini, Yii::app()->locale->getDateFormat('medium')));
 				$ffinal   = date('Y-m-d', CDateTimeParser::parse($model->fecha_fin, Yii::app()->locale->getDateFormat('medium')));
-				
+
 				$guias = Guias::model()->findAll('fecha_baja >= :fInicial AND fecha_baja <= :fFinal', array(':fInicial'=>$finicial, ':fFinal'=>$ffinal));
 				if (count($guias)>0)
 				{
@@ -499,11 +501,11 @@ class GuiasController extends Controller
 					$pdf->SetCreator(PDF_CREATOR);
 					$pdf->SetAuthor("Control Guias Plus");
 					$pdf->SetTitle("Bajas de guias del periodo");
-					
+
 					$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 					$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 					$pdf->SetHeaderData("", '30', "Bajas de guias del periodo", "Periodo: $model->fecha_ini al $model->fecha_fin ");
-					
+
 					$pdf->SetHeaderMargin(5);
 					$pdf->SetFooterMargin(10);
 					$pdf->SetTopMargin(25);
@@ -514,20 +516,20 @@ class GuiasController extends Controller
 					$pdf->lastPage();
 					$pdf->Output("example_002.pdf", "I");
 				}
-				else 
+				else
 				{
 					Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 					$this->refresh();
 				}
 			}
 		}
-				
+
 		$this->render('bajxf',array(
 			'model'=>$model,
 		));
-		
+
 	}
-	
+
 	public function actionGuiasd()
 	{
 		$guias = Guias::model()->findAll('id_baja=:cBaja',array(':cBaja'=> 0));
@@ -535,15 +537,15 @@ class GuiasController extends Controller
 		{
 			$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 			$html = $this->renderPartial('_asigxo', array('model'=>$guias), true, true);
-			
+
 			$pdf->SetCreator(PDF_CREATOR);
 			$pdf->SetAuthor("Control Guias Plus");
 			$pdf->SetTitle("Guias disponibles");
-			
+
 			$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 			$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 			$pdf->SetHeaderData("", '30', "Guias disponibles", "");
-			
+
 			$pdf->SetHeaderMargin(5);
 			$pdf->SetFooterMargin(10);
 			$pdf->SetTopMargin(25);
@@ -554,25 +556,25 @@ class GuiasController extends Controller
 			$pdf->lastPage();
 			$pdf->Output("example_002.pdf", "I");
 		}
-		else 
+		else
 		{
 			Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 			$this->redirect('index.php?r=site/reportes');
 		}
 	}
-	
+
 	public function actionBajxu ()
 	{
 		$model = new ReportesFormUsuario();
 		//$model->unsetAttributes();
-		
+
 		if (isset($_POST['ReportesFormUsuario']))
 		{
 			$model->attributes=$_POST['ReportesFormUsuario'];
-			
+
 			if($model->validate())
-			{	
-			
+			{
+
 				$baja = $model->id_baja;
 				$guias = Guias::model()->findAll('id_baja=:cBaja',array(':cBaja'=> $baja));
 				$cUsuario = Usuarios::model()->findByPk($baja);
@@ -584,11 +586,11 @@ class GuiasController extends Controller
 					$pdf->SetCreator(PDF_CREATOR);
 					$pdf->SetAuthor("Control Guias Plus");
 					$pdf->SetTitle("Bajas de guias por usuario");
-					
+
 					$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 					$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 					$pdf->SetHeaderData("", '30', "Bajas de guias por usuario", "Usuario: $cUsuario->nombre");
-					
+
 					$pdf->SetHeaderMargin(5);
 					$pdf->SetFooterMargin(10);
 					$pdf->SetTopMargin(25);
@@ -599,32 +601,32 @@ class GuiasController extends Controller
 					$pdf->lastPage();
 					$pdf->Output("example_002.pdf", "I");
 				}
-				else 
+				else
 				{
 					Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 					$this->refresh();
 				}
 			}
 		}
-		
+
 		$this->render('bajxu',
-			array('model'=>$model, 
+			array('model'=>$model,
 		));
-			
+
 	}
-	
+
 	public function actionGuiasdxo()
 	{
 		$model = new ReportesFormOrigen();
 		//$model->unsetAttributes();
-		
+
 		if (isset($_POST['ReportesFormOrigen']))
 		{
 			$model->attributes=$_POST['ReportesFormOrigen'];
 			//$model->scenario ='asigxo';
-			
+
 			if($model->validate())
-			{	
+			{
 				$origen = $model->id_origen;
 				$guias = Guias::model()->findAll('id_origen=:cOrigen AND id_baja = :cBaja',array(':cOrigen'=> $origen,':cBaja'=>0));
 				$cOrigen = Origenes::model()->findByPk($origen);
@@ -636,11 +638,11 @@ class GuiasController extends Controller
 					$pdf->SetCreator(PDF_CREATOR);
 					$pdf->SetAuthor("Control Guias Plus");
 					$pdf->SetTitle("Guias disponibles del origen");
-					
+
 					$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 					$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 					$pdf->SetHeaderData("", '30', "Guias disponibles del origen", "Origen: $cOrigen->origen");
-					
+
 					$pdf->SetHeaderMargin(5);
 					$pdf->SetFooterMargin(10);
 					$pdf->SetTopMargin(25);
@@ -651,24 +653,24 @@ class GuiasController extends Controller
 					$pdf->lastPage();
 					$pdf->Output("example_002.pdf", "I");
 				}
-				else 
+				else
 				{
 					Yii::app()->getUser()->setFlash('notice','No hay datos que mostrar.');
 					$this->refresh();
 				}
 			}
 		}
-		
+
 		$this->render('guiasdxo',
-			array('model'=>$model, 
+			array('model'=>$model,
 		));
-		
+
 	}
-	
+
 	public function actionCrearepo()
 	{
 		$model=Guias::model()->findAll('serie=:cSerie', array(':cSerie'=>'AA'));
-		
+
 		$pdf = yii::createComponent('application.extensions.tcpdf.ETcPdf','P','mm','A4',true,'UTF-8');
 		//$html = $this->renderparcial('view', array('model' => $this->loadModel($id)), true, true);
 		$html = $this->renderPartial('_catalog', array('model'=>$model), true, true);
@@ -695,7 +697,7 @@ class GuiasController extends Controller
 		$pdf->lastPage();
 		$pdf->Output("example_002.pdf", "I");
 		//return $pdf;
-		
+
 	}
 }
 ?>

@@ -44,6 +44,10 @@ $this->menu=array(
 			'name'=>'zona',
 			'htmlOptions'=>array('style'=>'width: 20px'),
 		),
+		array(
+			'name'=>'kilaje',
+			'htmlOptions'=>array('style'=>'width: 20px'),
+		),
 		'fecha_asig',
 		/*array(
 			'name'=>'fecha_asig',
@@ -63,14 +67,14 @@ $this->menu=array(
 			'name'=>'fecha_baja',
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),*/
-		array(
+		/*array(
 			'name'=>'destino_search',
 			'value'=>'$data->idDestino->destino',
-		),
-		array(
+		),*/
+		/*array(
 			'name'=>'baja_search',
 			'value'=>'$data->idUsuarioB->usuario',
-		),
+		),*/
 		/*
 		array(
 			'class'=>'CButtonColumn',
