@@ -130,7 +130,26 @@ class GuiasController extends Controller
 						$model->id_origen  = $origen;
 						$model->id_asigna  = $asigna;
 
-						$model->save();
+						if ( $model->validate() )
+							$model->save(false);
+						else
+						{
+							$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+							    'id'=>'mydialog',
+							    // additional javascript options for the dialog plugin
+							    'options'=>array(
+							        'title'=>'Control guias: Error',
+							        'autoOpen'=>true,
+									'modal'=>true,
+									'width'=>250,
+									'height'=>100,
+								)
+							));
+							echo 'Rango de guias no valido o repetido.';
+
+							$this->endWidget('zii.widgets.jui.CJuiDialog');
+							break;
+						}
 					}
 
 					$modelasigna->unsetAttributes();
@@ -277,27 +296,44 @@ class GuiasController extends Controller
 				//$guias = Guias::model()->find('serie=:cSerie AND folio=:cFolio',array(':cSerie'=>$model->serie,':cFolio'=>$model->folio));
 				$guias = Guias::model()->find('folio=:cFolio',array(':cFolio'=>$model->folio));
 				// validar que hay resultado
-				if (count($guias) && $guias->id_baja ==0)
+				if (count($guias))
 				{
-					$guias->id_destino = $model->id_destino;
-					$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));
-					$guias->id_baja = $model->id_baja;
-					$guias->save();
-					$model->unsetAttributes();
-					$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
-					$model->id_baja= Yii::app()->user->id;
+					if ($guias->id_baja == 0)
+					{
+						$guias->id_destino = $model->id_destino;
+						$guias->fecha_baja = date('Y-m-d', CDateTimeParser::parse($model->fecha, Yii::app()->locale->getDateFormat('medium')));
+						$guias->id_baja = $model->id_baja;
+						$guias->save();
+						$model->unsetAttributes();
+						$model->fecha = Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse(date('Y-m-d'), 'yyyy-MM-dd'),'medium',null);
+						$model->id_baja= Yii::app()->user->id;
 
-					$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-					    'options'=>array(
-					        'title'=>'Baja correcta',
-					        'autoOpen'=>true,
-					        'modal'=>true,
-					        'width'=>300,
-					        'height'=>100,
-					    ),
-					    ));
-					    echo 'La guia se dió de baja.';
-					$this->endWidget();
+						$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+						    'options'=>array(
+						        'title'=>'Baja correcta',
+						        'autoOpen'=>true,
+						        'modal'=>true,
+						        'width'=>300,
+						        'height'=>100,
+						    ),
+						    ));
+						    echo 'La guia se dió de baja.';
+						$this->endWidget();
+					}
+					else
+					{
+						$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+						    'options'=>array(
+						        'title'=>'ERROR',
+						        'autoOpen'=>true,
+						        'modal'=>true,
+						        'width'=>300,
+						        'height'=>100,
+						    ),
+						    ));
+						    echo 'La guia ya se dio de baja en: '.$guias->idDestino->destino.' el: '.$guias->fecha_baja;
+						$this->endWidget();
+					}
 				}
 				else
 				{

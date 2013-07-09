@@ -52,6 +52,7 @@ class Guias extends CActiveRecord
 			array('folio, fecha_asig, kilaje, id_origen, id_asigna', 'required'),
 			array('zona, kilaje, id_origen, id_asigna, id_destino, id_baja', 'numerical', 'integerOnly'=>true),
 			array('factura, folio', 'length', 'max'=>20),
+			array('folio', 'unique'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('destino_search, origen_search, baja_search, asigna_search, id, factura, folio, zona, kilaje, fecha_asig, id_origen, id_asigna, fecha_baja, id_destino, id_baja', 'safe', 'on'=>'search'),
