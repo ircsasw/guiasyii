@@ -67,14 +67,14 @@ $this->menu=array(
 			'name'=>'fecha_baja',
 			'value'=>"Yii::app()->dateFormatter->format('dd-MM-yyyy','dd-MM-yy')",
 		),*/
-		/*array(
+		array(
 			'name'=>'destino_search',
-			'value'=>'$data->idDestino->destino',
-		),*/
-		/*array(
+			'value'=>'$data->id_destino > 0 ? $data->idDestino->destino : ""',
+		),
+		array(
 			'name'=>'baja_search',
-			'value'=>'$data->idUsuarioB->usuario',
-		),*/
+			'value'=>'$data->id_baja > 0 ? $data->idUsuarioB->usuario : ""',
+		),
 		/*
 		array(
 			'class'=>'CButtonColumn',
