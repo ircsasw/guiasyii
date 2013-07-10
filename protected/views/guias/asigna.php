@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Lista Guias', 'url'=>array('index')),
 	array('label'=>'Administrar Guias', 'url'=>array('admin')),
-	//array('label'=>'eliminar','{Eliminar();}', 'url'=>'#', 'titulo'=>Yii::t('default', 'Inactivate'), 'clase'=>''),
+	array('label'=>'Eliminar seleccionadas', 'linkOptions'=>array('onclick'=>'{borrarChkd();}'), 'url'=>'#'),
 );
 ?>
 
@@ -19,6 +19,15 @@ $this->menu=array(
 } ?>
 
 <?php echo $this->renderPartial('_formasigna', array('modelasigna'=>$modelasigna)); ?>
+
+<?php /*echo CHtml::button(
+	'Borrar',
+	array(
+		'submit' => array('controller/action'),
+		'class' => 'button grey'
+		)
+	);*/
+?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'guias-grid',
@@ -83,3 +92,89 @@ $this->menu=array(
 	),
 ));
 ?>
+
+
+<script type="text/javascript">
+	idsel = [];
+	idchk = [];
+
+	// actualiza el grid
+	function refreshGrid()
+	{
+		$.fn.yiiGridView.update('guias-grid');
+	}
+
+	// se ejecuta cada que el usuario hace click en una fila del grid
+	function userClicks(target_id)
+	{
+	    alert($.fn.yiiGridView.getSelection(target_id));
+	}
+
+	// muestra las filas seleccionadas
+	function muestraSelec()
+	{
+		idsel = $.fn.yiiGridView.getSelection('guias-grid');
+		alert(idsel);
+		//alert("ok");
+		return;
+	}
+
+	// muestra las filas checadas
+	function muestraChkd()
+	{
+		idchk = $.fn.yiiGridView.getChecked('guias-grid', 'chk');
+		alert(idchk);
+		return;
+	}
+
+	/**
+	*
+	**/
+	function borrarChkd()
+	{
+		idchk = $.fn.yiiGridView.getChecked('guias-grid', 'chk');
+		//alert(idchk);
+		if (idchk.length != 0)
+		{
+			var confirmar = confirm("Borrar las guias seleccionadas?");
+			if (confirmar)
+			{
+				for (x=idchk.length; x>=1; x=x-1)
+				{
+			    	jQuery.ajax(
+			    		{
+			    			'url':'<?php echo $this->createUrl('guias/delete'); ?>' + '&id=' + idchk[x-1],
+			    			'data':$(this).serialize(),
+			    			'type':'post',
+			    			'dataType':'json',
+			    			'success':function(data)
+						        {
+									if (data.status == 'failure')
+									{
+										//alert(data.respuesta);
+										$.fn.yiiGridView.update('guias-grid');
+									}
+									else
+									{
+										$.fn.yiiGridView.update('guias-grid');
+										//alert(data.respuesta);
+									}
+								}
+							,'cache':false
+						}
+					);;
+				}
+			}
+			else
+			{
+				//alert("Operación cancelada");
+			}
+			return false;
+		}
+		else
+			var messg = "Debe seleccionar una guia";
+			alert(messg);
+			return;
+	}
+
+</script>

@@ -219,8 +219,15 @@ class GuiasController extends Controller
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			$msj = "Guia borrada.";
 			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			{
+				echo CJSON::encode(array(
+					'status'=>'failure',
+					'respuesta'=>$msj
+				));
+				exit;
+			}
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
